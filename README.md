@@ -1,7 +1,7 @@
 # react-notes
 
 > [!IMPORTANT]
-> The purpose of this `readme` is simply to consolidate content I found important or useful to me in some way on my journey to learn **React**, and condense them into a single page for my own personal reference.
+> The purpose of this `readme` is simply to consolidate content I find important or useful to me in some way on my journey to learn **React**, and condense them into a single page for my own personal reference.
 
 ### Table of contents
 * [About React](#about-react)
