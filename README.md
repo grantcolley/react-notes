@@ -41,5 +41,12 @@ React uses JavaScript and therefore React development on Windows requires Node.j
 [ESLint](https://eslint.org/) is a tool that analyzes your code for potential errors, bugs, stylistic issues, and code quality problems
 
 ### TypeScript
+[TypeScript](https://www.typescriptlang.org/) is a superset of JavaScript that adds Type safety resulting in fewer runtime bugs.
 
+How it works is you write TypeScript code in `.ts` files and TypeScript compiles them to regular JavaScript `.js` files.
 
+React normally uses JavaScript (JSX), but with TypeScript (TSX), you get all the typing benefits without giving up JSX.
+
+File Extensions
+- `.jsx` → becomes `.tsx` (for components using JSX + TypeScript)
+- `.js` → becomes `.ts` (for plain logic or utility files)
