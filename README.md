@@ -11,6 +11,7 @@
 	* [npm](#npm)
 * [Tooling](#tooling)
 	* [Vite](#vite)
+ 	* [ESLint](#eslint)	 
  	* [TypeScript](#typescript)
   
 # About React
@@ -35,6 +36,9 @@ React uses JavaScript and therefore React development on Windows requires Node.j
 
 > [!TIP]
 > **vite** has HMR (Hot Module Replacement) built in. HMR lets you update your React components in real-time without reloading the whole page, while keeping your app’s state.
+	 
+### ESLint
+[ESLint](https://eslint.org/) is a tool that analyzes your code for potential errors, bugs, stylistic issues, and code quality problems
 
 ### TypeScript
 
