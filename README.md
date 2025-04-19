@@ -13,7 +13,7 @@
 	* [Vite](#vite)
  	* [ESLint](#eslint)	 
  	* [TypeScript](#typescript)
-* [React Components](#react-components)
+* [React Function Components](#react-function-components)
   
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -52,8 +52,8 @@ File Extensions
 - `.jsx` → becomes `.tsx` (for components using JSX + TypeScript)
 - `.js` → becomes `.ts` (for plain logic or utility files)
 
-# React Components
-React components must be in Pascal case i.e. where the first letter of each word starts with an upper case letter. This is because React treats components that begin with a lowercase letter as DOM tags (like `<div>`, `<span>`, etc.). So if a component starts with a lower case React will think it's a native HTML tag.
+# React Function Components
+**React function component** names must be in Pascal case i.e. where the first letter of each word starts with an upper case letter. This is because React treats components that begin with a lowercase letter as DOM tags (like `<div>`, `<span>`, etc.). So if a component starts with a lower case React will think it's a native HTML tag.
 ```JSX
 function App() {   // 👈 React components must start with an upper case letter
   return (
