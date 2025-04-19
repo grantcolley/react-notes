@@ -14,6 +14,7 @@
  	* [ESLint](#eslint)	 
  	* [TypeScript](#typescript)
 * [React Function Components](#react-function-components)
+* [JSX](#jsx)
   
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -77,6 +78,8 @@ function App() {
 export default App
 ```
 
+# JSX
+JSX (JavaScript Xml) describes what the UI should look like by mixing up HTML and JavaScript. It isn't mandatory for React, however it is recommended and is widely used. JSX is transpiled to regular JavaScript using tools like Babel before rendering in a browser. In JSX variables can be embedded using curly braces e.g. `<h1>Hello {title}</h1>`.
 
 
 
