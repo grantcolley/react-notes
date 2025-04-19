@@ -69,8 +69,8 @@ function App() {   // 👈 React components must start with an upper case letter
 // 👈 function variables and additional code goes here...
 
   return (
-      <div>    // 👈 the return body contains a single root tag, with nested tags in between
-        <h1>Hello React</h1>
+      <div>    
+        <h1>Hello {title}</h1>
       </div>
   );
 }
