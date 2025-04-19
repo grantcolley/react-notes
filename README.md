@@ -57,6 +57,9 @@ File Extensions
 
 The function of a component runs every time a component is displayed or updated. Everytime it runs, the variables defined in the function’s body will be re-defined.
 
+> [!TIP]
+> To avoid unnecessarily redefining a variable every time a component is displayed or updated, define it outside the function component unless it needs something from within the function component’s body (e.g. parameters).
+
 ```JSX
 
 const title = 'React'; // 👈 variables outside the function will only get defined once...
@@ -75,8 +78,7 @@ function App() {   // 👈 React components must start with an upper case letter
 export default App
 ```
 
-> [!TIP]
-> To avoid unnecessarily redefining a variable, define it outside the function component unless it needs something from within the function component’s body (e.g. parameters).
+
 
 
 
