@@ -54,10 +54,19 @@ File Extensions
 
 # React Function Components
 **React function component** names must be in Pascal case i.e. where the first letter of each word starts with an upper case letter. This is because React treats components that begin with a lowercase letter as DOM tags (like `<div>`, `<span>`, etc.). So if a component starts with a lower case React will think it's a native HTML tag.
+
+The function of a component runs every time a component is displayed or updated. Everytime it runs, the variables defined in the function’s body will be re-defined.
+
 ```JSX
+
+const title = 'React'; // 👈 variables outside the function will only get defined once...
+
 function App() {   // 👈 React components must start with an upper case letter
+
+// 👈 function variables and additional code goes here...
+
   return (
-      <div>
+      <div>    // 👈 the return body contains a single root tag, with nested tags in between
         <h1>Hello React</h1>
       </div>
   );
@@ -65,3 +74,9 @@ function App() {   // 👈 React components must start with an upper case letter
 
 export default App
 ```
+
+> [!TIP]
+> To avoid unnecessarily redefining a variable, define it outside the function component unless it needs something from within the function component’s body (e.g. parameters).
+
+
+
