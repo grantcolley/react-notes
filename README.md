@@ -13,9 +13,10 @@
 	* [Vite](#vite)
  	* [ESLint](#eslint)	 
  	* [TypeScript](#typescript)
+* [Naming Conventions](#naming-conventions)
   
 # About React
-Created by Facebook in 2013, React is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
+Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
 #### Key Features
 - **Virtual DOM** - React creates a virtual representation of the DOM and updates only the parts that change, making rendering faster.
@@ -50,3 +51,6 @@ React normally uses JavaScript (JSX), but with TypeScript (TSX), you get all the
 File Extensions
 - `.jsx` → becomes `.tsx` (for components using JSX + TypeScript)
 - `.js` → becomes `.ts` (for plain logic or utility files)
+
+# Naming Conventions
+React components must be in Pascal case i.e. where the first letter of each word starts with an upper case letter. This is because React treats components that begin with a lowercase letter as DOM tags (like `<div>`, `<span>`, etc.). So if a component starts with a lower case React will think it's a native HTML tag.
