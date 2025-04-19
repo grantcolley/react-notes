@@ -54,3 +54,14 @@ File Extensions
 
 # Naming Conventions
 React components must be in Pascal case i.e. where the first letter of each word starts with an upper case letter. This is because React treats components that begin with a lowercase letter as DOM tags (like `<div>`, `<span>`, etc.). So if a component starts with a lower case React will think it's a native HTML tag.
+```JSX
+function App() {   // 👈 React components must start with an upper case letter
+  return (
+      <div>
+        <h1>Hello React</h1>
+      </div>
+  );
+}
+
+export default App
+```
