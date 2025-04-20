@@ -15,6 +15,7 @@
  	* [TypeScript](#typescript)
 * [React Function Components](#react-function-components)
 * [JSX](#jsx)
+	* [Transpiling JSX](#transpiling-jsx)
   	* [Variables](#variables)
  	* [Arrays](#arrays)
   	  
@@ -83,13 +84,13 @@ JSX (JavaScript XML) is a syntax extension used in React that allows you to writ
 JSX isn't mandatory for React, however it is recommended and is widely used.
 
 ### Transpiling JSX
-JSX is transpiled to regular JavaScript using tools like [Babel](https://babeljs.io/docs/#jsx-and-react) before execution.
+Browsers don't understand JSX so is transpiled to regular JavaScript, using tools like [Babel](https://babeljs.io/docs/#jsx-and-react). The **Babel** plugin `@babel/preset-react` transforms JSX into plain JavaScript by transpiling JSX into `React.createElement()` calls before execution.
 
 ```JSX
-\* This JSX code... *\
+/* This JSX code... */
 const element = <h1>Hello, world!</h1>;
 
-\* Gets transpiled into this JavaScript... *\
+/* Gets transpiled into this JavaScript... */
 const element = React.createElement('h1', null, 'Hello, world!');
 ```
 
@@ -100,7 +101,7 @@ const element = React.createElement('h1', null, 'Hello, world!');
   <p>Description</p>
 </div>
 
-\* Gets transpiled into this JavaScript... *\
+/* Gets transpiled into this JavaScript... */
 React.createElement(
   'div',
   null,
@@ -116,8 +117,15 @@ In JSX variables can be embedded using curly braces e.g. `<h1>Hello {title}</h1>
 > To avoid unnecessarily redefining a variable every time a component is displayed or updated, define it outside the function component unless it needs something from within the function component’s body (e.g. parameters).
 
 ### Arrays
-The map() method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.
+In [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) the `map()` method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.
+```JS
+const array1 = [1, 4, 9, 16];
 
+// Pass a function to map
+const map1 = array1.map((x) => x * 2);
 
+console.log(map1);
+// Expected output: Array [2, 8, 18, 32]
+```
 
 
