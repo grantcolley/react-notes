@@ -128,4 +128,28 @@ console.log(map1);
 // Expected output: Array [2, 8, 18, 32]
 ```
 
+In **React** the `map()` method tranforms a list by returning JSX for each item. React requires a `key` prop when rendering lists to track which items changed, were added, or removed. This helps React optimize re-renders.
+
+In the example below:
+- `users.map(...)` loops through each user.
+- For each one, it returns a `UserCard` function component.
+- `key={user.id}` helps React track changes to the function component efficiently.
+
+```JSX
+const users = [
+  { id: 1, name: 'Alice', role: 'Admin' },
+  { id: 2, name: 'Bob', role: 'User' },
+  { id: 3, name: 'Charlie', role: 'Moderator' }
+];
+
+function UserList() {
+  return (
+    <div>
+      {users.map(user => (
+        <UserCard key={user.id} name={user.name} role={user.role} />
+      ))}
+    </div>
+  );
+}
+```
 
