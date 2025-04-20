@@ -17,6 +17,7 @@
 * [JSX](#jsx)
 	* [Transpiling JSX](#transpiling-jsx)
   	* [Variables](#variables)
+  	* [Commenting Code](#commenting-code)
  	* [Arrays](#arrays)
   	  
 # About React
@@ -113,6 +114,9 @@ In JSX variables can be embedded using curly braces e.g. `<h1>Hello {title}</h1>
 
 > [!TIP]
 > To avoid unnecessarily redefining a variable every time a component is displayed or updated, define it outside the function component unless it needs something from within the function component’s body (e.g. parameters).
+
+### Commenting Code
+Wrap comment text in `{/* */}` e.g. `{/* Hello World! */}`
 
 ### Arrays
 In [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) the `map()` method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.
