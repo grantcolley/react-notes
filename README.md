@@ -88,7 +88,7 @@ The main HTML file served by your web server is `index.html`. The React entry po
 <html lang="en">
   /* code removed for brevity */
   <body>
-    <div id="root"></div>
+    <div id="root"></div>   <!-- 👈 React injects your app into the <div id="root"> -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
@@ -103,9 +103,9 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <StrictMode>
+    <App />		<!-- 👈 React renders the `App` component inside the `#root` div from `index.html` -->
+  </StrictMode>
 );
 ```
 
