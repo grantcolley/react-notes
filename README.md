@@ -79,9 +79,7 @@ export default App
 ```
 
 # JSX
-JSX (JavaScript XML) is a syntax extension used in React that allows you to write HTML-like code inside JavaScript.
-
-JSX isn't mandatory for React, however it is recommended and is widely used.
+JSX (JavaScript XML) is a syntax extension used in React that allows you to write HTML-like code inside JavaScript. JSX expressions are JavaScript expressions embedded within curly braces in JSX, allowing dynamic content. JSX isn't mandatory for React, however it is recommended and is widely used.
 
 ### Transpiling JSX
 Browsers don't understand JSX so is transpiled to regular JavaScript, using tools like [Babel](https://babeljs.io/docs/#jsx-and-react). The **Babel** plugin `@babel/preset-react` transforms JSX into plain JavaScript by transpiling JSX into `React.createElement()` calls before execution.
