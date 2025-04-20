@@ -104,7 +104,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <App />		<!-- 👈 React renders the `App` component inside the `#root` div from `index.html` -->
+    <App />		{/* 👈 React renders the App component inside the #root div from index.html */}
   </StrictMode>
 );
 ```
