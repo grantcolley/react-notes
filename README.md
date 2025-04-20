@@ -15,7 +15,9 @@
  	* [TypeScript](#typescript)
 * [React Function Components](#react-function-components)
 * [JSX](#jsx)
-  
+  	* [Variables](#variables)
+ 	* [Arrays](#arrays)
+  	  
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
@@ -56,17 +58,14 @@ File Extensions
 # React Function Components
 **React function component** names must be in Pascal case i.e. where the first letter of each word starts with an upper case letter. This is because React treats components that begin with a lowercase letter as DOM tags (like `<div>`, `<span>`, etc.). So if a component starts with a lower case React will think it's a native HTML tag.
 
-The function of a component runs every time a component is displayed or updated. Everytime it runs, the variables defined in the function’s body will be re-defined.
-
-> [!TIP]
-> To avoid unnecessarily redefining a variable every time a component is displayed or updated, define it outside the function component unless it needs something from within the function component’s body (e.g. parameters).
+The function of a component runs every time a component is displayed or updated.
 
 ```JSX
-const title = 'React'; // 👈 variables outside the function will only get defined once...
+const title = 'React'; /* 👈 variables outside the function will only get defined once... */
 
 function App() {
 
-  // 👈 function variables and additional code goes here...
+  /* 👈 function variables and additional code goes here... */
 
   return (
       <div>
@@ -79,7 +78,45 @@ export default App
 ```
 
 # JSX
-JSX (JavaScript Xml) describes what the UI should look like by mixing up HTML and JavaScript. It isn't mandatory for React, however it is recommended and is widely used. JSX is transpiled to regular JavaScript using tools like Babel before rendering in a browser. In JSX variables can be embedded using curly braces e.g. `<h1>Hello {title}</h1>`.
+JSX (JavaScript XML) is a syntax extension used in React that allows you to write HTML-like code inside JavaScript.
+
+JSX isn't mandatory for React, however it is recommended and is widely used.
+
+### Transpiling JSX
+JSX is transpiled to regular JavaScript using tools like [Babel](https://babeljs.io/docs/#jsx-and-react) before execution.
+
+```JSX
+\* This JSX code... *\
+const element = <h1>Hello, world!</h1>;
+
+\* Gets transpiled into this JavaScript... *\
+const element = React.createElement('h1', null, 'Hello, world!');
+```
+
+```JSX
+/* and this JSX...*/
+<div>
+  <h1>Title</h1>
+  <p>Description</p>
+</div>
+
+\* Gets transpiled into this JavaScript... *\
+React.createElement(
+  'div',
+  null,
+  React.createElement('h1', null, 'Title'),
+  React.createElement('p', null, 'Description')
+);
+```
+
+### Variables
+In JSX variables can be embedded using curly braces e.g. `<h1>Hello {title}</h1>`. Everytime it a component is displayed or updated, the variables defined in the function’s body will be re-defined.
+
+> [!TIP]
+> To avoid unnecessarily redefining a variable every time a component is displayed or updated, define it outside the function component unless it needs something from within the function component’s body (e.g. parameters).
+
+### Arrays
+The map() method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.
 
 
 
