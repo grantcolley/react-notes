@@ -80,7 +80,7 @@ my-react-app/
 └── ... (other config files)
 ```
 
-The main HTML file served by your web server is `index.html`. The React entry point is in `index.js`, which renders the root React component `App` into the DOM.
+The main HTML file served by your web server is `index.html`. The React entry point is in `main.jsx`, which renders the root React component `App` into the DOM.
 
 `index.html` is the main HTML file served by your web server. React doesn't generate HTML from scratch — it injects your app into the `<div id="root">`.
 ```HTML
