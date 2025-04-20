@@ -13,6 +13,7 @@
 	* [Vite](#vite)
  	* [ESLint](#eslint)	 
  	* [TypeScript](#typescript)
+* [React Entry Point](#react-entry-point)
 * [React Function Components](#react-function-components)
 * [JSX](#jsx)
 	* [Transpiling JSX](#transpiling-jsx)
@@ -56,6 +57,73 @@ React normally uses JavaScript (JSX), but with TypeScript (TSX), you get all the
 File Extensions
 - `.jsx` → becomes `.tsx` (for components using JSX + TypeScript)
 - `.js` → becomes `.ts` (for plain logic or utility files)
+
+# React Entry Point
+In a React application, the root component is typically the top-level component that is rendered into the DOM using `ReactDOM.createRoot(...).render(...)` or `ReactDOM.render(...)` (older versions). It acts as the entry point for the component tree.
+
+By convention, this root component is usually named App.
+
+Typical React Project Structure
+```
+my-react-app/
+├── src/
+│   ├── assets/         # Optional: images, fonts, icons, etc.
+│   ├── components/     # Your reusable React components
+│   ├── App.js          # Root React component
+│   ├── App.css         # App-specific styles
+│   ├── index.css       # Global styles
+│   └── main.jsx        # Entry point - renders App into the DOM
+├── .gitignore
+├── index.html      	# The main HTML file served by your web server
+├── package.json
+├── README.md
+└── ... (other config files)
+```
+
+The main HTML file served by your web server is `index.html`. The React entry point is in `index.js`, which renders the root React component `App` into the DOM.
+
+`index.html` is the main HTML file served by your web server. React doesn't generate HTML from scratch — it injects your app into the `<div id="root">`.
+```HTML
+<!doctype html>
+<html lang="en">
+  /* code removed for brevity */
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+```
+
+`src/main.jsx` is the entry point of the application. It tells React to render the `App` component inside the `#root` div from `index.html`.
+```JSX
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
+
+`src/App.js` is the root component of your React component tree.
+```JSX
+import React from 'react';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Welcome to My React App</h1>
+    </div>
+  );
+}
+
+export default App;
+```
 
 # React Function Components
 **React function component** names must be in Pascal case i.e. where the first letter of each word starts with an upper case letter. This is because React treats components that begin with a lowercase letter as DOM tags (like `<div>`, `<span>`, etc.). So if a component starts with a lower case React will think it's a native HTML tag.
