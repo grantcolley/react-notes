@@ -97,7 +97,7 @@ The main HTML file served by your web server is `index.html`. The React entry po
 `src/main.jsx` is the entry point of the application. It tells React to render the `App` component inside the `#root` div from `index.html`.
 ```JSX
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom/client'; /* 👈 React DOM is used once in the application to hook React into the native HTML world. */
 import './index.css';
 import App from './App';
 
