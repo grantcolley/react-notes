@@ -61,6 +61,47 @@ File Extensions
 
 # Debugging React + Vite in Visual Studio Code
 
+**1. Start the Vite Dev Server**
+From the terminal in your project root:
+```BASH
+npm run dev
+```
+This usually starts the server at `http://localhost:5173`.
+
+**2. Edit the Debug Configuration (`launch.json`)**
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Vite React App",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",  		👈 url should match the one Vite uses — 5173 is the default.
+      "webRoot": "${workspaceFolder}/src",	👈 webRoot should point to where your React components live (usually /src).
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}
+```
+
+**3. Set Breakpoints**
+
+**4. Run and Debug**
+Select `Debug Vite React App` in the Run and Debug dropdown list (green arrow).
+
+> [!TIP]
+> - Browser extension: Make sure you have the Debugger for Chrome extension (or "JavaScript Debugger" built-in in newer VS Code versions).
+> - Correct port: Vite uses 5173 by default — adjust url if your Vite server runs on another port.
+> - Environment variables: If you're using .env, make sure VITE_ prefixes are used so Vite exposes them to the client.
+> - Want to attach to an already open Chrome? Use `"request": "attach"` with `"urlFilter": "http://localhost:5173/*"`.
+>
+> 
+> Download the React DevTools for a better development experience: `https://react.dev/link/react-devtools` <br>
+> *WARNING - installing React DevTools will allow it to read and change all your data on all websites*
+
 # React DOM
 In a React application, the root component is typically the top-level component that is rendered into the DOM using `ReactDOM.createRoot(...).render(...)` or `ReactDOM.render(...)` (older versions). It acts as the entry point for the component tree.
 
