@@ -103,7 +103,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <StrictMode>
+  <StrictMode>     	{/* 👈 <StrictMode> lets you find common bugs in your components early during development. */}
     <App />		{/* 👈 React renders the App component inside the #root div from index.html */}
   </StrictMode>
 );
