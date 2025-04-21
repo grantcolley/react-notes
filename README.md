@@ -13,6 +13,7 @@
 	* [Vite](#vite)
  	* [ESLint](#eslint)	 
  	* [TypeScript](#typescript)
+* [Debugging React + Vite in Visual Studio Code](#debugging-react-+-vite-in-visual-studio-code)
 * [React DOM](#react-dom)
 * [React Function Components](#react-function-components)
 * [JSX](#jsx)
@@ -57,6 +58,8 @@ React normally uses JavaScript (JSX), but with TypeScript (TSX), you get all the
 File Extensions
 - `.jsx` → becomes `.tsx` (for components using JSX + TypeScript)
 - `.js` → becomes `.ts` (for plain logic or utility files)
+
+# Debugging React + Vite in Visual Studio Code
 
 # React DOM
 In a React application, the root component is typically the top-level component that is rendered into the DOM using `ReactDOM.createRoot(...).render(...)` or `ReactDOM.render(...)` (older versions). It acts as the entry point for the component tree.
