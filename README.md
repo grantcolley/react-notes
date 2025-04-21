@@ -13,7 +13,7 @@
 	* [Vite](#vite)
  	* [ESLint](#eslint)	 
  	* [TypeScript](#typescript)
-* [React Entry Point](#react-entry-point)
+* [React DOM](#react-dom)
 * [React Function Components](#react-function-components)
 * [JSX](#jsx)
 	* [Transpiling JSX](#transpiling-jsx)
@@ -58,7 +58,7 @@ File Extensions
 - `.jsx` → becomes `.tsx` (for components using JSX + TypeScript)
 - `.js` → becomes `.ts` (for plain logic or utility files)
 
-# React Entry Point
+# React DOM
 In a React application, the root component is typically the top-level component that is rendered into the DOM using `ReactDOM.createRoot(...).render(...)` or `ReactDOM.render(...)` (older versions). It acts as the entry point for the component tree.
 
 By convention, this root component is usually named App.
