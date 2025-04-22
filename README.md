@@ -22,7 +22,7 @@
   	* [Commenting JSX](#commenting-jsx)
  	* [Arrays](#arrays)
   	* [Component Declaration](#component-declaration)
-  	* [Handler Handlers](#handler-handlers) 
+  	* [Event Handlers](#event-handlers) 
   	  
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
