@@ -21,7 +21,8 @@
   	* [Variables](#variables)
   	* [Commenting JSX](#commenting-jsx)
  	* [Arrays](#arrays)
-  	* [Component Declaration](#component-declaration) 
+  	* [Component Declaration](#component-declaration)
+  	* [Handler Handlers](#handler-handlers) 
   	  
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -308,3 +309,34 @@ const List = () => (			/* 👈 arrow declaration with concise body */
 /* a example of a one line arrow function with parameter and concise body */
 const incrementVal = (val) => val + 1;
 ```
+
+### Event Handlers
+In HTML we add event handlers on elements using `addEventListener()` method programmatically on a DOM node. React also lets you add event handlers to your JSX. 
+
+Event handler functions:
+- Are usually defined inside your components.
+- Have names that start with `handle`, followed by the name of the event.
+
+```JSX
+const Search = () => {
+
+  const handleChange = (event) => {
+    console.log(event.target.value);
+  }
+
+  return(
+    <div>
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" onChange={handleChange} />
+    </div>
+  );
+};
+```
+> [!WARNING]
+> 
+> Functions passed to event handlers must be passed, not called. The difference is subtle.
+> 
+> In this example `<button onClick={handleClick}>`, the `handleClick` function is passed as an `onClick` event handler, telling React to only call your function when the user clicks the button.
+>
+> In this example `<button onClick={handleClick()}>`, the brackets in `handleClick()` fires the function immediately during rendering, without any clicks. This is because JavaScript inside the JSX braces `{ and }` executes right away.
+
