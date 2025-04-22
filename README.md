@@ -21,6 +21,7 @@
   	* [Variables](#variables)
   	* [Commenting JSX](#commenting-jsx)
  	* [Arrays](#arrays)
+  	* [Component Declaration](#component-declaration) 
   	  
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -132,7 +133,7 @@ The main HTML file served by your web server is `index.html`. The React entry po
 <html lang="en">
   /* code removed for brevity */
   <body>
-    <div id="root"></div>   <!-- 👈 React injects your app into the <div id="root"> -->
+    <div id="root"></div>   /* 👈 React injects your app into the <div id="root"> */
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
@@ -267,3 +268,43 @@ function UserList() {
 }
 ```
 
+### Component Declaration
+Components can be declared using the **standard function** declaration, or as **arrow functions**. With arrow functions parameters are passed inside the parentheses. Callback functions can also be declared using arrow functions. Furthermore, arrow functions that only return a value can remove the return statement. In a **concise body** an implicit return statement is attached.
+
+```JSX
+function List() { 			/* 👈 function declaration */
+  return (
+    <ul>
+      {list.map(function (item) {	/* 👈 function declaration */
+        return (
+          <li key={item.objectID}>{item.author}</li>
+        );
+      })}
+    </ul>
+  );
+}
+
+const List = () => {			/* 👈 arrow declaration with block body */
+  return (
+    <ul>
+      {list.map((item) => {		/* 👈 arrow declaration with block body */
+        return (
+          <li key={item.objectID}>{item.author}</li>
+        );
+      })}
+    </ul>
+  );
+}
+
+const List = () => (			/* 👈 arrow declaration with concise body */
+    <ul>
+      {list.map((item) => (		/* 👈 arrow declaration with concise body */
+          <li key={item.objectID}>{item.author}</li>
+        );
+      )}
+    </ul>
+  );
+
+/* a example of a one line arrow function with parameter and concise body */
+const incrementVal = (val) => val + 1;
+```
