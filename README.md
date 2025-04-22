@@ -22,7 +22,11 @@
   	* [Commenting JSX](#commenting-jsx)
  	* [Arrays](#arrays)
   	* [Component Declaration](#component-declaration)
-  	* [Event Handlers](#event-handlers) 
+  	* [Event Handlers](#event-handlers)
+  	  * [Event Propagation](#event-propagation)
+  	  * [Passing Event Handlers as Props](#passing-event-handlers-as-props)
+  	  * [Preventing Default Event Behavior](#preventing-default-event-behavior)
+
   	  
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -311,7 +315,7 @@ const incrementVal = (val) => val + 1;
 ```
 
 ### Event Handlers
-In HTML we add event handlers on elements using `addEventListener()` method programmatically on a DOM node. React also lets you add event handlers to your JSX. 
+In HTML we add event handlers on elements using `addEventListener()` method programmatically on a DOM node. React also lets you add event handlers to your JSX, which is essentially a wrapper around the browser’s native event.
 
 Event handler functions:
 - Are usually defined inside your components.
@@ -340,3 +344,41 @@ const Search = () => {
 >
 > In this example `<button onClick={handleClick()}>`, the brackets in `handleClick()` fires the function immediately during rendering, without any clicks. This is because JavaScript inside the JSX braces `{ and }` executes right away.
 
+#### Event Propagation
+Event handlers will also catch events from any child components. An event “bubbles” (or “propagates”) up the component tree.
+
+All events propagate in React except `onScroll`, which only works on the JSX tag you attach it to.
+
+To prevent an event propagating call `e.stopPropagation()`.
+
+#### Passing Event Handlers as Props
+In the following example, 
+```JSX
+function MyButton({ onClick, children }) {
+  return (
+    <button onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+
+function PlayButton({ movieName }) {
+  return (
+    <MyButton onClick={() => alert('Playing!')}>
+      Play
+    </MyButton>
+  );
+}
+
+function UploadButton() {
+  return (
+    <MyButton onClick={() => alert('Uploading!')}>
+      Upload
+    </MyButton>
+  );
+}
+```
+
+#### Preventing Default Event Behavior
+Some browser events have default behavior associated with them. You can call `e.preventDefault()` on the event object to stop this from happening.
+     
