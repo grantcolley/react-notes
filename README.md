@@ -26,7 +26,8 @@
   	  * [Event Propagation](#event-propagation)
   	  * [Passing Event Handlers as Props](#passing-event-handlers-as-props)
   	  * [Preventing Default Event Behavior](#preventing-default-event-behavior)
-
+* [JavaScript](#javascript)
+  
   	  
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -382,3 +383,15 @@ function UploadButton() {
 #### Preventing Default Event Behavior
 Some browser events have default behavior associated with them. You can call `e.preventDefault()` on the event object to stop this from happening.
      
+
+
+
+
+
+
+
+* [JavaScript](#javascript)
+- memory model ?
+- garbage collection ?
+- DOM ?
+- etc...
