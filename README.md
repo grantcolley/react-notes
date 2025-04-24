@@ -26,6 +26,8 @@
   	  * [Event Propagation](#event-propagation)
   	  * [Passing Event Handlers as Props](#passing-event-handlers-as-props)
   	  * [Preventing Default Event Behavior](#preventing-default-event-behavior)
+  	  * [Props](#props)
+  	  * [State](#state)
 * [JavaScript](#javascript)
   
   	  
@@ -383,10 +385,32 @@ function UploadButton() {
 #### Preventing Default Event Behavior
 Some browser events have default behavior associated with them. You can call `e.preventDefault()` on the event object to stop this from happening.
      
+### Props
+Parent components can pass information to its child components by giving them **props**. Props are the information that you pass to a JSX tag. 
 
+```JSX
+export default function Profile() {
+  return (
+    <Avatar person={{ firstname: 'Jane', surname: 'Masters' }} /* 👈 use “double curlies” to pass a JS object in JSX */
+ 	    age={21}
+    /> 
+  );
+}
 
+function Avatar(props) {  /* 👈 props is the only arg to the component */
+  let person = props.person;
+  let size = props.age;
+  // ...
+}
 
+function Avatar({ person, age }) { /* 👈 you can destructure props into individual props */
+  // person and age are available here...
+}
 
+function Avatar({ person, age = 20 }) { /* 👈 you can also destructure props and specify defaults */
+  // person and age are available here...
+}
+```
 
 
 
