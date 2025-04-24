@@ -27,6 +27,7 @@
   	  * [Passing Event Handlers as Props](#passing-event-handlers-as-props)
   	  * [Preventing Default Event Behavior](#preventing-default-event-behavior)
   	  * [Props](#props)
+  	* [Hooks](#hooks) 
   	  * [State](#state)
 * [JavaScript](#javascript)
   
@@ -388,6 +389,11 @@ Some browser events have default behavior associated with them. You can call `e.
 ### Props
 Parent components can pass information to its child components by giving them **props**. Props are the information that you pass to a JSX tag. 
 
+Props are passed in as attributes of a component, and received into the component as one function parameter called `props`. 
+
+> [!IMPORTANT]
+> Once a props have been passed into a component they are readonly. They can be consumed, but not changed.
+
 ```JSX
 export default function Profile() {
   return (
@@ -407,11 +413,22 @@ function Avatar({ person, age }) { /* 👈 you can destructure props into indivi
   // person and age are available here...
 }
 
-function Avatar({ person, age = 20 }) { /* 👈 you can also destructure props and specify defaults */
+function Avatar({ person, age = 20 }) { /* 👈 you can specify default values */
   // person and age are available here...
 }
 ```
 
+# Hooks
+Hooks let you use different React features from your components such as state, handle side effects, and access other features.
+
+### State
+Props are readonly. To change their value, you introduce **state**, which is a mutable data structure.
+
+```JSX
+const [state, setState] = useState(initialState)
+
+setState(newState)
+```
 
 
 * [JavaScript](#javascript)
