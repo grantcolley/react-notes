@@ -431,7 +431,10 @@ setState(newState)
 ```
 
 
-* [JavaScript](#javascript)
+
+
+
+# JavaScript
 - memory model ?
 - garbage collection ?
 - DOM ?
