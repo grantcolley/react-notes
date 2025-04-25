@@ -430,6 +430,37 @@ function Avatar({ person, age = 20 }) { /* 👈 you can specify default values *
 ```
 
 ### Callback Handlers
+Callback handlers are typically implemented as functions passed as props from a parent component to child component, allowing the child component to call the callback handler in response to something.
+
+```JSX
+import React from 'react';
+
+/* Parent component */
+function ParentComponent() {
+  const handleClick = (message) => {       /* 👈 Callback handler in the parent */
+    console.log("Callback from child: " + message);
+  };
+
+  return (
+    <div>
+      <ChildComponent onButtonClick={handleClick} /> /* 👈 Callback handler passed as a prop */
+    </div>
+  );
+}
+
+{/* Child component */}
+function ChildComponent({ onButtonClick }) { /* 👈 Callback handler received as a prop */
+  const handleButtonClick = () => {
+    onButtonClick("Hello from Child!");  /* 👈 Child calls the callback handler */
+  };
+
+  return (
+    <div>
+      <button onClick={handleButtonClick}>Click Me</button>
+    </div>
+  );
+}
+```
 
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
@@ -452,6 +483,8 @@ function Counter() {
   );
 }
 ```
+
+
 
 
 
