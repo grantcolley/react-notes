@@ -27,6 +27,7 @@
   	  * [Passing Event Handlers as Props](#passing-event-handlers-as-props)
   	  * [Preventing Default Event Behavior](#preventing-default-event-behavior)
   	  * [Props](#props)
+	* [Callback Handlers](#callback-handlers) 
   	* [Hooks](#hooks) 
   	  * [State](#state)
 * [JavaScript](#javascript)
@@ -428,7 +429,9 @@ function Avatar({ person, age = 20 }) { /* 👈 you can specify default values *
 }
 ```
 
-# Hooks
+### Callback Handlers
+
+### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
 
 ### State
