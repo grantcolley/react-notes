@@ -424,12 +424,21 @@ Hooks let you use different React features from your components such as state, h
 ### State
 Props are readonly. To change their value, you introduce **state**, which is a mutable data structure.
 
+You define state using the `useState` hook, passing in an initial value and a *setter* function. React stores the state internally and associates it with the component. Calling the state *setter* function updates the value of the state variable and marks the component as **dirty**, meaning it needs to be re-rendered.
+On the next render cycle, React calls the component function again and creates a new virtual DOM tree using the using the updated state. A diff is done comparing the new Virtual DOM with the previous one, and React efficiently updates only the parts in the real DOM that has changed.
+
 ```JSX
-const [state, setState] = useState(initialState)
+function Counter() {
+  const [count, setCount] = useState(0);
 
-setState(newState)
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
 ```
-
 
 
 
