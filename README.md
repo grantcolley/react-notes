@@ -151,9 +151,9 @@ The main HTML file served by your web server is `index.html`. The React entry po
 ```HTML
 <!doctype html>
 <html lang="en">
-  /* code removed for brevity */
+  <!-- code removed for brevity -->
   <body>
-    <div id="root"></div>   /* 👈 React injects your app into the <div id="root"> */
+    <div id="root"></div>   <!-- 👈 React injects your app into the <div id="root"> -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
@@ -443,7 +443,7 @@ function ParentComponent() {
 
   return (
     <div>
-      <ChildComponent onButtonClick={handleClick} /> /* 👈 Callback handler passed as a prop */
+      <ChildComponent onButtonClick={handleClick} /> {/* 👈 Callback handler passed as a prop */}
     </div>
   );
 }
