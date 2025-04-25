@@ -45,8 +45,18 @@ React uses JavaScript and therefore React development on Windows requires Node.j
 ### Node.js
 [Node.js](https://nodejs.org/en/about) an asynchronous event-driven JavaScript runtime for building scalable network applications. Basically, [Node.js](https://www.robinwieruch.de/react-js-windows-setup/) is a JavaScript runtime which makes it possible to run JavaScript outside of the browser.
 
+Check if node has been installed.
+```bash
+node -v
+```
+
 ### npm
 [npm](https://www.npmjs.com/package/npm) is a JavaScript package manager. Basically, [node package manager (NPM)](https://www.robinwieruch.de/react-js-windows-setup/) is used to install libraries, such as React.js, to your project on the command line.
+
+Check if npm has been installed.
+```bash
+npm -v
+```
 
 # Tooling
 ### Vite
