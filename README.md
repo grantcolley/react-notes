@@ -644,7 +644,9 @@ console.log(details); // { age: 30, city: 'Paris' } //👈 name is grabbed separ
 
 ```
 
+<!--
 - memory model ?
 - garbage collection ?
 - DOM ?
 - etc...
+-->
