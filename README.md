@@ -615,6 +615,8 @@ Key difference:
 
 #### Spread Operator
 The spread operator `...` expands (spreads) elements of an array or object into individual elements.
+> [!IMPORTANT]
+> The spread operator creates a shallow copy of an object, meaning nested objects are still references to the original.
 ```JS
 const numbers = [1, 2, 3];
 const newNumbers = [...numbers, 4, 5];
