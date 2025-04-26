@@ -28,7 +28,8 @@
   	  * [Preventing Default Event Behavior](#preventing-default-event-behavior)
   	  * [Props](#props)
 	* [Callback Handlers](#callback-handlers)
- 	* [Lifting State](#lifting-state) 
+ 	* [Lifting State](#lifting-state)
+  	* [React Controlled Components](#react-controlled-components)
   	* [Hooks](#hooks) 
   	  * [State](#state)
 * [JavaScript](#javascript)
@@ -476,6 +477,13 @@ Lifting state describes a common practice in React development where state that 
 > Callback functions are used to pass state data from child to parent when lifting state.
 >
 > An example of lifting state is a parent component with a list of data, and two child components. One child component provides input for filtered text, the other component displays the filtered list. The state of the filtered text is lifted up to the parent component. Changing the filtered
+
+### React Controlled Components
+In React, a controlled component is a form element (like an `<input>`, `<textarea>`, or `<select>`) whose value is controlled by React state instead of the DOM.
+Basically:
+- The form element's value is set by the component's state.
+- Any change to the form element triggers an event (like onChange), where you update the state.
+- The state then updates the displayed value.
 
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
