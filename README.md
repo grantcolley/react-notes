@@ -521,6 +521,24 @@ const Search = ({ search, onSearch }) => ( {/* 👈 destructure props in the fun
 );
 ```
 
+React (JavaScipt) also supports nested destructuring.
+
+```JavaScript
+const user = {
+  name: 'Alice',
+  address: {
+    city: 'London',
+  },
+};
+
+const {
+  name,
+  address: {
+    city,
+  },
+} = user  /* 👈 nested destructuring of complex user object */
+```
+
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
 
