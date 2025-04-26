@@ -46,7 +46,7 @@
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
 #### Key Features
-- **Virtual DOM** - React creates a virtual representation of the DOM and updates only the parts that change, making rendering faster.
+- **Virtual DOM** - React creates a in-memory representation of the DOM for diffs, and updates the real DOM with only the parts that change, making rendering faster.
 - **JSX** - Combines JavaScript with HTML-like syntax for easier UI coding.
 
 # Pre-requisites
@@ -552,7 +552,7 @@ Hooks let you use different React features from your components such as state, h
 Props are readonly. To change their value, you introduce **state**, which is a mutable data structure.
 
 You define state using the `useState` hook, passing in an initial value and a *setter* function. React stores the state internally and associates it with the component. Calling the state *setter* function updates the value of the state variable and marks the component as **dirty**, meaning it needs to be re-rendered.
-On the next render cycle, React calls the component function again and creates a new virtual DOM tree using the using the updated state (the latest state value from its ***closure***). A diff is done comparing the new Virtual DOM with the previous one, and React efficiently updates only the parts in the real DOM that has changed.
+On the next render cycle, React calls the component function again and creates a new virtual DOM (React’s in-memory representation of the DOM) using the updated state (the latest state value from its ***closure***). A diff is done comparing the new Virtual DOM with the previous virtual DOM, and React efficiently updates only the parts in the real DOM that have changed.
 
 ```JSX
 function Counter() {
