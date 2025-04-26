@@ -490,8 +490,8 @@ Basically:
 React `props` is simply a JavaScript object, which allows us to apply JavaScript features like object destructuring, to pull values out of objects or arrays.
 
 ```JSX
-const Search = (props) => { {/* 👈 props is simply a JavaScript object */}
-  const { search, onSearch } = props; {/* 👈 destructure props - pull the values out of it */}
+const Search = (props) => { 		{/* 👈 props is simply a JavaScript object */}
+  const { search, onSearch } = props; 	{/* 👈 destructure props - pull the values out of it */}
 
   return (
     <div>
