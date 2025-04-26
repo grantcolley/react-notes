@@ -470,9 +470,11 @@ function ChildComponent({ onButtonClick }) { /* 👈 Callback handler received a
 ```
 
 ### Lifting State
-Lifting state describes a common practice in React development where state that is consumed by multiple child components is moved up to the closest common parent. 
+Lifting state describes a common practice in React development where state that is is lifted from a child component to a parent component. This allows multiple child components consume state from the closest common parent. 
 
 > [!TIP]
+> Callback functions are used to pass state data from child to parent when lifting state.
+>
 > An example of lifting state is a parent component with a list of data, and two child components. One child component provides input for filtered text, the other component displays the filtered list. The state of the filtered text is lifted up to the parent component. Changing the filtered
 
 ### Hooks
