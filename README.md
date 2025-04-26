@@ -30,6 +30,7 @@
 	* [Callback Handlers](#callback-handlers)
  	* [Lifting State](#lifting-state)
   	* [React Controlled Components](#react-controlled-components)
+  	* [Props Destructuring](#props-destructuring)
   	* [Hooks](#hooks) 
   	  * [State](#state)
 * [JavaScript](#javascript)
@@ -484,6 +485,26 @@ Basically:
 - The form element's value is set by the component's state using a prop.
 - Any change to the form element triggers an event (like onChange), where you update the state.
 - The state then updates the displayed value.
+
+### Props Destructuring
+React `props` is simply a JavaScript object, which allows us to apply JavaScript features like object destructuring, to pull values out of objects or arrays.
+
+```JSX
+const Search = (props) => { {/* 👈 props is simply a JavaScript object */}
+  const { search, onSearch } = props; {/* 👈 destructure props - pull the values out of it */}
+
+  return (
+    <div>
+      <input
+	id="search"
+	type="text"
+	value={search} 		{/* 👈 used the values pulled out of props */}
+        onChange={onSearch}	{/* 👈 used the values pulled out of props */}
+      />
+    </div>
+  );
+};
+```
 
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
