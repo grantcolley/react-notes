@@ -506,6 +506,23 @@ const Search = (props) => { 		{/* 👈 props is simply a JavaScript object */}
 };
 ```
 
+The `props` object can also be destructured in the function signature.
+
+```JSX
+const Search = ({ search, onSearch }) => ( {/* 👈 destructure props in the functions signature */}
+  <div>
+    <input
+      id="search"
+      type="text"
+      value={search}
+      onChange={onSearch}
+    />
+  </div>
+);
+
+Wieruch, Robin. The Road to React: The React.js 19 with Hooks in JavaScript Book (2025 Edition) (pp. 109-110). leanpub.com. Kindle Edition. 
+```
+
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
 
