@@ -31,6 +31,7 @@
  	* [Lifting State](#lifting-state)
   	* [React Controlled Components](#react-controlled-components)
   	* [Props Destructuring](#props-destructuring)
+  	* [React Side-Effects](#react-side-effects)
   	* [Hooks](#hooks) 
   	  * [State](#state)
 * [JavaScript](#javascript)
@@ -548,7 +549,7 @@ const {
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
 
-### State
+#### State
 Props are readonly. To change their value, you introduce **state**, which is a mutable data structure.
 
 You define state using the `useState` hook, passing in an initial value and a *setter* function. React stores the state internally and associates it with the component. Calling the state *setter* function updates the value of the state variable and marks the component as **dirty**, meaning it needs to be re-rendered.
@@ -566,6 +567,73 @@ function Counter() {
   );
 }
 ```
+
+#### React Side-Effects
+React side-effects are anything your component does besides rendering, and you manage them using the useEffect hook!
+
+Examples of side-effects:
+- Changing the DOM
+- Fetching data from an API
+- Setting a timer (setTimeout)
+- Manually changing state or localStorage
+- Subscribing to a service (like WebSocket)
+
+In React, when a component causes one of these side-effects, React needs a special place to manage them, so they don't happen chaotically. This is in the `useEffect` hook.
+
+Inside `useEffect`, you can safely:
+- Fetch data
+- Set up listeners
+- Set timers
+- Update things outside of React
+
+How useEffect Works
+- It runs after the render.
+- It can cleanup when the component unmounts (goes away).
+
+```JSX
+import { useEffect } from 'react';
+
+function ExampleComponent() {
+  useEffect(() => {
+    console.log('This runs after the component renders!');
+  });
+  
+  return <h1>Hello World</h1>;
+}
+
+
+// Example of cleanup
+useEffect(() => {
+  const timer = setTimeout(() => {
+    console.log('Timer done!');
+  }, 3000);
+
+  return () => clearTimeout(timer); /* 👈 The return inside useEffect is a cleanup function. */
+});
+
+// Controlling when useEffect runs (dependencies). Pass a second argument: an array of dependencies.
+useEffect(() => {
+  console.log('Runs only once');
+}, []);  /* 👈 [] → means "run once when the component mounts" (like componentDidMount). */
+
+useEffect(() => {
+  console.log('Runs when `count` changes');
+}, [count]); /* 👈 [count] → means "run when count changes." */
+
+```
+
+**Common Side-Effect Patterns**
+| Task | useEffect Pattern|
+| ---- | ---------------- |
+| Fetching data on mount | useEffect(() => { fetchData() }, []) |
+| Setting up event listeners | useEffect(() => { window.addEventListener(...) }, []) with cleanup |
+| Running code when a prop or state changes | useEffect(() => { ... }, [propName]) |
+
+**Why are side-effects separated?**
+\
+Because rendering should stay pure — meaning given the same inputs (props/state), it should always behave the same.
+\
+Side-effects (like fetching data) change the world, so they must happen separately after rendering.
 
 # JavaScript
 ### Destructuring
