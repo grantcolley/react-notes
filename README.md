@@ -34,6 +34,10 @@
   	* [Hooks](#hooks) 
   	  * [State](#state)
 * [JavaScript](#javascript)
+	* [Destructuring](#destructuring)
+ 	  * [Array Destructuring](#array-destructuring)
+ 	  * [Object Destructuring](#object-destructuring)
+  	  * [Nested Destructuring](#nested-destructuring)
   	* [Spread and Rest Operators](#spread-and-rest-operators)
   	  * [Spread Operator](#spread-operator)
   	  * [Rest Operator](#rest-operator)
@@ -564,12 +568,50 @@ function Counter() {
 ```
 
 # JavaScript
+### Destructuring
+Destructuring is a way to unpack values from arrays or properties from objects into individual variables easily.
+
+Key difference:
+- Arrays → Based on position.
+- Objects → Based on property name.
+
+#### Array Destructuring
+```JS
+const colors = ['red', 'green', 'blue'];
+const [firstColor, secondColor] = colors; // 👈 pull out items by their position.
+console.log(firstColor); // 'red'
+console.log(secondColor); // 'green'
+
+const [, , thirdColor] = colors;
+console.log(thirdColor); // 'blue' 	 // 👈 you can skip items too
+```
+#### Object Destructuring
+```JS
+const user = { name: 'Alice', age: 25 };
+const { name, age } = user; 		 // 👈 pull out items by their property names.
+console.log(name); // 'Alice'
+console.log(age);  // 25
+
+```
+#### Nested Destructuring
+```JS
+const person = {
+  name: 'Bob',
+  address: {
+    city: 'Paris',
+  }
+};
+
+const { address: { city } } = person;
+console.log(city); // 'Paris'
+```
+
 ### Spread and Rest Operators
 Both spread and rest operators use `...`, but how they are used depends on the context.
 
 Key difference:
-- Spread = Expand out
-- Rest = Gather in
+- Spread → Expand out
+- Rest → Gather in
 
 #### Spread Operator
 The spread operator `...` expands (spreads) elements of an array or object into individual elements.
