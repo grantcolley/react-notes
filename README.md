@@ -519,8 +519,6 @@ const Search = ({ search, onSearch }) => ( {/* 👈 destructure props in the fun
     />
   </div>
 );
-
-Wieruch, Robin. The Road to React: The React.js 19 with Hooks in JavaScript Book (2025 Edition) (pp. 109-110). leanpub.com. Kindle Edition. 
 ```
 
 ### Hooks
