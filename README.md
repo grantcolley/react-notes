@@ -27,7 +27,8 @@
   	  * [Passing Event Handlers as Props](#passing-event-handlers-as-props)
   	  * [Preventing Default Event Behavior](#preventing-default-event-behavior)
   	  * [Props](#props)
-	* [Callback Handlers](#callback-handlers) 
+	* [Callback Handlers](#callback-handlers)
+ 	* [Lifting State](#lifting-state) 
   	* [Hooks](#hooks) 
   	  * [State](#state)
 * [JavaScript](#javascript)
@@ -430,7 +431,13 @@ function Avatar({ person, age = 20 }) { /* 👈 you can specify default values *
 ```
 
 ### Callback Handlers
-Callback handlers are typically implemented as functions passed as props from a parent component to child component, allowing the child component to call the callback handler in response to something.
+Callback handlers are typically implemented as a function passed as a prop to child component, allowing the child component to call the callback handler and coommunicate with the parent component.
+
+Callback handlers:
+- are popular for handling form submissions and updating state in the parent component
+- can receive parameters passed by the child component
+- can be asynchronous
+- can pass through multiple layers of components
 
 ```JSX
 import React from 'react';
@@ -461,6 +468,12 @@ function ChildComponent({ onButtonClick }) { /* 👈 Callback handler received a
   );
 }
 ```
+
+### Lifting State
+Lifting state describes a common practice in React development where state that is consumed by multiple child components is moved up to the closest common parent. 
+
+> [!TIP]
+> An example of lifting state is a parent component with a list of data, and two child components. One child component provides input for filtered text, the other component displays the filtered list. The state of the filtered text is lifted up to the parent component. Changing the filtered
 
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
