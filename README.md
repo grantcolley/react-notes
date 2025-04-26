@@ -34,7 +34,9 @@
   	* [Hooks](#hooks) 
   	  * [State](#state)
 * [JavaScript](#javascript)
-  
+  	* [Spread and Rest Operators](#spread-and-rest-operators)
+  	  * [Spread Operator](#spread-operator)
+  	  * [Rest Operator](#rest-operator)
   	  
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -561,12 +563,43 @@ function Counter() {
 }
 ```
 
-
-
-
-
-
 # JavaScript
+### Spread and Rest Operators
+Both spread and rest operators use `...`, but how they are used depends on the context.
+
+Key difference:
+- Spread = Expand out
+- Rest = Gather in
+
+#### Spread Operator
+The spread operator `...` expands (spreads) elements of an array or object into individual elements.
+```JS
+const numbers = [1, 2, 3];
+const newNumbers = [...numbers, 4, 5];
+console.log(newNumbers); // [1, 2, 3, 4, 5]  // 👈 spread each item from numbers into newNumbers
+
+const user = { name: 'Alice', age: 25 };
+const updatedUser = { ...user, location: 'NYC' };
+console.log(updatedUser);
+// { name: 'Alice', age: 25, location: 'NYC' } 👈 copied properties of user into updatedUser, then added a new one.
+```
+
+#### Rest Operator
+The rest operator `...` gathers multiple elements into a single array or object.
+```JS
+function sum(...numbers) { //👈 ...numbers collects all arguments into an array.
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // 10
+
+// Example using object destructuring
+const { name, ...details } = { name: 'Bob', age: 30, city: 'Paris' };
+console.log(name);    // 'Bob'
+console.log(details); // { age: 30, city: 'Paris' } //👈 name is grabbed separately, and details gathered the rest.
+
+```
+
 - memory model ?
 - garbage collection ?
 - DOM ?
