@@ -611,7 +611,13 @@ useEffect(() => {
   return () => clearTimeout(timer); /* 👈 The return inside useEffect is a cleanup function. */
 });
 
-// Controlling when useEffect runs (dependencies). Pass a second argument: an array of dependencies.
+// Controlling when useEffect runs (dependencies).
+Pass a second argument: an array of dependencies.
+
+useEffect(() => {
+  console.log('Runs only once');
+});  /* 👈 no second parameter → means "run on every render (initial and update renders). */
+
 useEffect(() => {
   console.log('Runs only once');
 }, []);  /* 👈 [] → means "run once when the component mounts" (like componentDidMount). */
