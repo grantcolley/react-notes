@@ -481,7 +481,7 @@ Lifting state describes a common practice in React development where state that 
 ### React Controlled Components
 In React, a controlled component is a form element (like an `<input>`, `<textarea>`, or `<select>`) whose value is controlled by React state instead of the DOM.
 Basically:
-- The form element's value is set by the component's state.
+- The form element's value is set by the component's state using a prop.
 - Any change to the form element triggers an event (like onChange), where you update the state.
 - The state then updates the displayed value.
 
