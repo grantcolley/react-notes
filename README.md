@@ -14,7 +14,7 @@
  	* [ESLint](#eslint)	 
  	* [TypeScript](#typescript)
 * [Debugging React + Vite in Visual Studio Code](#debugging-react--vite-in-visual-studio-code)
-* [package.json](#package.json)
+* [package.json](#package-json)
 * [React DOM](#react-dom)
 * [React Function Components](#react-function-components)
 * [JSX](#jsx)
