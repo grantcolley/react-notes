@@ -569,7 +569,7 @@ function Counter() {
 ```
 
 #### React Side-Effects
-React side-effects are anything your component does besides rendering e.g. interacting with third party API's, and you manage them using the useEffect hook!
+React side-effects are anything your component does besides rendering e.g. interacting with third party API's, and you manage them using the `useEffect` hook!
 
 Examples of side-effects:
 - Changing the DOM
@@ -584,7 +584,9 @@ Inside `useEffect`, you can safely:
 - Fetch data
 - Set up listeners
 - Set timers
-- Update things outside of React
+- Update things outside of React, e.g. local storage
+
+The `useEffect` hook lets us opt into React’s component lifecycle when mounting, updating and unmounting the component. It can be triggered when the component is first mounted, but also if one of its values (state, props, derived values from state/props) is updated.
 
 How useEffect Works
 - It runs after the render.
