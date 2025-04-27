@@ -569,7 +569,7 @@ function Counter() {
 ```
 
 #### React Side-Effects
-React side-effects are anything your component does besides rendering, and you manage them using the useEffect hook!
+React side-effects are anything your component does besides rendering e.g. interacting with third party API's, and you manage them using the useEffect hook!
 
 Examples of side-effects:
 - Changing the DOM
