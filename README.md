@@ -33,6 +33,7 @@
   	* [React Controlled Components](#react-controlled-components)
   	* [Props Destructuring](#props-destructuring)
   	* [React Fragments](#react-fragments)
+  	* [Children Props](#children-props)
   	* [Hooks](#hooks) 
   	  * [useState](#usestate)
   	  * [useEffects](#useeffects)
@@ -619,6 +620,24 @@ const Search = ({ search, onSearch }) => (
     <input id="search" type="text" value={search} onChange={onSearch} />
   </>
 );
+```
+
+### Children Props
+In React, the `children` prop is a special prop that automatically includes whatever you wrap inside a component when you use it. You can wrap anything and the component doesn't have to know what it is ahead of time.
+
+In the following example `<h1>Hello World!</h1>` is passed into `<Wrapper>` component as `props.Children`. 
+```JSX
+function Wrapper(props) {
+  return <div className="wrapper">{props.children}</div>;
+}
+
+export default function App() {
+  return (
+    <Wrapper>
+      <h1>Hello World!</h1>
+    </Wrapper>
+  );
+}
 ```
 
 ### Hooks
