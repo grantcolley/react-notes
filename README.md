@@ -592,6 +592,10 @@ const {
 
 ### React Fragments
 All react components need to return one top-level HTML element e.g. `<div></div>`. A React fragment can be used instead, wrapping sibling elements in a top-level element without rendering one to the output. 
+
+> [!TIP]
+> Fragments support key's when mapping over a list of elements.
+
 ```JSX
 const Search = ({ search, onSearch }) => (
   <div>  				{/* 👈 top-level HTML element */}
