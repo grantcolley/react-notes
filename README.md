@@ -34,7 +34,8 @@
   	* [Props Destructuring](#props-destructuring)
   	* [React Fragments](#react-fragments)
   	* [Children Props](#children-props)
-  	* [Hooks](#hooks) 
+  	* [Passing JSX into named Prop](#passing-jsx-into-named-prop)
+  	* [Hooks](#hooks)
   	  * [useState](#usestate)
   	  * [useEffects](#useeffects)
   	  * [Custom Hooks](#custom-hooks)
@@ -623,7 +624,7 @@ const Search = ({ search, onSearch }) => (
 ```
 
 ### Children Props
-In React, the `children` prop is a special prop that automatically includes whatever you wrap inside a component when you use it. You can wrap anything and the component doesn't have to know what it is ahead of time.
+In React, the `children` prop is a special prop that automatically includes whatever you wrap inside a component when you use it. “Children” in React refers to the content placed between the opening and closing tags of a component. You can wrap anything and the component doesn't have to know what it is ahead of time.
 
 In the following example `<h1>Hello World!</h1>` is passed into `<Wrapper>` component as `props.Children`. 
 ```JSX
@@ -638,6 +639,31 @@ export default function App() {
     </Wrapper>
   );
 }
+```
+
+### Passing JSX into named Prop
+In React, "slots" usually just means passing components or JSX into named props — not just children, but any prop you define.
+
+In short:
+- children = default slot
+- Named props = custom slots
+  
+```JSX
+function MainLayout(props) {
+  return (
+    <div className="layout">
+      <div className="top">{props.top}</div>
+      <div className="left">{props.left}</div>
+      <div className="center">{props.center}</div>
+    </div>
+  );
+}
+
+<MainLayout
+  left={<NavigationPanel/>}
+  top={<Toolbar/>}
+  center={<Body/>}
+/>
 ```
 
 ### Hooks
