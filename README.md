@@ -14,6 +14,7 @@
  	* [ESLint](#eslint)	 
  	* [TypeScript](#typescript)
 * [Debugging React + Vite in Visual Studio Code](#debugging-react--vite-in-visual-studio-code)
+* [package.json](#package.json)
 * [React DOM](#react-dom)
 * [React Function Components](#react-function-components)
 * [JSX](#jsx)
@@ -132,6 +133,47 @@ Select `Debug Vite React App` in the Run and Debug dropdown list (green arrow).
 > 
 > Download the React DevTools for a better development experience: `https://react.dev/link/react-devtools` <br>
 > *WARNING - installing React DevTools will allow it to read and change all your data on all websites*
+
+# package.json
+In a React app's `package.json`, the scripts section defines shortcuts for commands you can run in the terminal.
+```json
+{
+  // removed for brevity...
+
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+
+  // removed for brevity...
+}
+```
+
+- `dev` — usually runs the app in development mode.
+It starts a development server (like Vite, Next.js, or Create React App) that watches your files for changes and hot-reloads the page.
+```bash
+npm run dev
+```
+
+- `build` — creates an optimized production version of your app.
+It bundles and minifies the code, making it ready for deployment (smaller and faster).
+```cmd
+npm run build
+```
+
+- `lint` — checks your code for syntax/style issues according to a linter configuration (like ESLint).
+It helps catch bugs and enforce coding standards.
+```cmd
+npm run lint
+```
+
+- `preview` — serves the production build locally so you can test what the deployed app will look like.
+This doesn't rebuild, it just hosts the already-built files.
+```cmd
+npm run preview
+```
 
 # React DOM
 In a React application, the root component is typically the top-level component that is rendered into the DOM using `ReactDOM.createRoot(...).render(...)` or `ReactDOM.render(...)` (older versions). It acts as the entry point for the component tree.
