@@ -594,21 +594,21 @@ const {
 All react components need to return one top-level HTML element e.g. `<div></div>`. A React fragment can be used instead, wrapping sibling elements in a top-level element without rendering one to the output. 
 ```JSX
 const Search = ({ search, onSearch }) => (
-  <div>  					{/* 👈 top-level HTML element */}
+  <div>  				{/* 👈 top-level HTML element */}
     <label htmlFor="search">Search: </label>
     <input id="search" type="text" value={search} onChange={onSearch} />
   </div>
 );
 
 const Search = ({ search, onSearch }) => (
-  <React.Fragment> 				{/* 👈 using React.Fragment won't render the top-level element to the output */}
+  <React.Fragment> 			{/* 👈 using React.Fragment won't render the top-level element to the output */}
     <label htmlFor="search">Search: </label>
     <input id="search" type="text" value={search} onChange={onSearch} />
   </React.Fragment>
 );
 
 const Search = ({ search, onSearch }) => (
-  <> 						{/* 👈 using the more common short hand version of React.Fragment */}
+  <> 					{/* 👈 using the more common short hand version of React.Fragment */}
     <label htmlFor="search">Search: </label>
     <input id="search" type="text" value={search} onChange={onSearch} />
   </>
