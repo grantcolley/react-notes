@@ -33,8 +33,8 @@
   	* [React Controlled Components](#react-controlled-components)
   	* [Props Destructuring](#props-destructuring)
   	* [Hooks](#hooks) 
-  	  * [State](#state)
-  	  * [React Side-Effects](#react-side-effects)
+  	  * [useState](#usestate)
+  	  * [useEffects](#useeffects)
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
  	  * [Array Destructuring](#array-destructuring)
@@ -591,7 +591,7 @@ const {
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
 
-#### State
+#### useState
 Props are readonly. To change their value, you introduce **state**, which is a mutable data structure.
 
 You define state using the `useState` hook, passing in an initial value and a *setter* function. React stores the state internally and associates it with the component. Calling the state *setter* function updates the value of the state variable and marks the component as **dirty**, meaning it needs to be re-rendered.
@@ -610,7 +610,7 @@ function Counter() {
 }
 ```
 
-#### React Side-Effects
+#### useEffects
 React side-effects are anything your component does besides rendering e.g. interacting with third party API's, and you manage them using the `useEffect` hook!
 
 Examples of side-effects:
