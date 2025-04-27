@@ -35,6 +35,7 @@
   	* [Hooks](#hooks) 
   	  * [useState](#usestate)
   	  * [useEffects](#useeffects)
+  	  * [Custom Hooks](#custom-hooks)
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
  	  * [Array Destructuring](#array-destructuring)
@@ -669,7 +670,6 @@ useEffect(() => {
 useEffect(() => {
   console.log('Runs when `count` changes');
 }, [count]); /* 👈 [count] → means "run when count changes." */
-
 ```
 
 **Common Side-Effect Patterns**
@@ -684,6 +684,54 @@ useEffect(() => {
 Because rendering should stay pure — meaning given the same inputs (props/state), it should always behave the same.
 \
 Side-effects (like fetching data) change the world, so they must happen separately after rendering.
+
+#### Custom Hooks
+Custom hooks are JavaScript functions that utilize React hooks to encapsulate and reuse logic in function components.
+\
+To create a custom hook, create a function starting with **“use”** and use existing React hooks or other custom hooks within it.
+
+Here we create a custom hook `useCounter` to manage a Counter.
+- `useCounter` is a custom hook that manages the logic for counting.
+- It uses `useState` inside to track the number.
+- The hook returns functions (`increment`, `decrement`, `reset`) and the current `count` value so you can easily reuse it in any component!
+
+```JSX
+import { useState } from 'react';
+
+function useCounter(initialValue = 0) {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => setCount(prev => prev + 1);
+  const decrement = () => setCount(prev => prev - 1);
+  const reset = () => setCount(initialValue);
+
+  return { count, increment, decrement, reset };
+}
+
+export default useCounter;
+
+```
+
+Here we use `useCounter` in a component
+```JSX
+import React from 'react';
+import useCounter from './useCounter';
+
+function CounterComponent() {
+  const { count, increment, decrement, reset } = useCounter(5); // starting at 5
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={increment}>Increase</button>
+      <button onClick={decrement}>Decrease</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+
+export default CounterComponent;
+```
 
 # JavaScript
 ### Destructuring
