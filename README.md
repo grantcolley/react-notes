@@ -686,7 +686,7 @@ Because rendering should stay pure — meaning given the same inputs (props/stat
 Side-effects (like fetching data) change the world, so they must happen separately after rendering.
 
 #### Custom Hooks
-Custom hooks are JavaScript functions that utilize React hooks to encapsulate and reuse logic in function components.
+Custom hooks are JavaScript functions that utilize React hooks to encapsulate and reuse logic in function components. The main purpose of custom hooks is promoting code reuse, abstraction of complex logic, and maintainability in React function components.
 \
 To create a custom hook, create a function starting with **“use”** and use existing React hooks or other custom hooks within it.
 
