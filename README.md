@@ -595,8 +595,6 @@ All react components need to return one top-level HTML element e.g. `<div></div>
 
 The different between using `React.Fragment` and a `<div>` is Fragments don’t create an extra DOM node, providing a cleaner HTML structure compared to using `div` containers.
 
-Wieruch, Robin. The Road to React: The React.js 19 with Hooks in JavaScript Book (2025 Edition) (p. 141). leanpub.com. Kindle Edition. 
-
 > [!TIP]
 > Fragments support key's when mapping over a list of elements.
 
