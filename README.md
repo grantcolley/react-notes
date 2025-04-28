@@ -38,6 +38,7 @@
   	* [Hooks](#hooks)
   	  * [useState](#usestate)
   	  * [useEffects](#useeffects)
+  	  * [useRef](#useref)
   	  * [Custom Hooks](#custom-hooks)
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
@@ -761,6 +762,33 @@ useEffect(() => {
 Because rendering should stay pure — meaning given the same inputs (props/state), it should always behave the same.
 \
 Side-effects (like fetching data) change the world, so they must happen separately after rendering.
+
+#### useRef
+`useRef` is a hook that gives you a way to persist a value across renders without causing a re-render when it changes.
+
+It’s main purpose is for:
+- Accessing DOM elements directly (like grabbing an input field to focus it).
+- Storing mutable values but don't want to trigger re-renders when it changes (like a timer ID, previous state, etc.).
+
+Example 1: Accessing DOM elements directly
+```JSX
+import { useRef } from 'react';
+
+function MyComponent() {
+  const inputRef = useRef(); 	/* 👈 inputRef is a reference object with a `.current` property. */
+
+  const focusInput = () => {
+    inputRef.current.focus(); 	/* 👈 current points to the actual input DOM node */
+  };
+
+  return (
+    <div>
+      <input ref={inputRef} type="text" /> /* 👈 sets inputRef.current to the DOM input element */
+      <button onClick={focusInput}>Focus the input</button>
+    </div>
+  );
+}
+```
 
 #### Custom Hooks
 Custom hooks are JavaScript functions that utilize React hooks to encapsulate and reuse logic in function components. The main purpose of custom hooks is promoting code reuse, abstraction of complex logic, and maintainability in React function components.
