@@ -35,6 +35,7 @@
   	* [React Fragments](#react-fragments)
   	* [Children Props](#children-props)
   	* [Passing JSX into named Prop](#passing-jsx-into-named-prop)
+  	* [Inline Handlers in JSX](#inline-handlers-in-jsx)
   	* [Hooks](#hooks)
   	  * [useState](#usestate)
   	  * [useEffects](#useeffects)
@@ -666,6 +667,16 @@ function MainLayout(props) {
   center={<Body/>}
 />
 ```
+
+### Inline Handlers in JSX
+An inline handler is when you define an event handling function directly inside the JSX markup, instead of writing a separate function elsewhere.
+
+In this example the `onClick` event is attached directly to the button where the handler is an arrow function `() => alert('Button clicked!')` written inline (i.e., directly inside the `onClick` attribute).
+```JSX
+<button onClick={() => alert('Button clicked!')}>Click Me</button>
+```
+> [!WARNING]
+> Inline handlers are quick and convenient for very simple actions however; there is a performance cost. A new function is created every time the component renders, which can hurt performance if used carelessly in big apps.
 
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
