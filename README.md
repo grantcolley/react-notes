@@ -790,6 +790,20 @@ function MyComponent() {
 }
 ```
 
+Example 2: Storing mutable value without triggerring a re-render when it changes
+```JSX
+function Timer() {
+  const count = useRef(0);
+
+  function increment() {
+    count.current += 1;   /* 👈 updating a `ref` doesn't trigger re-renders like state does */
+    console.log(count.current);
+  }
+
+  return <button onClick={increment}>Click me</button>;
+}
+```
+
 #### Custom Hooks
 Custom hooks are JavaScript functions that utilize React hooks to encapsulate and reuse logic in function components. The main purpose of custom hooks is promoting code reuse, abstraction of complex logic, and maintainability in React function components.
 \
