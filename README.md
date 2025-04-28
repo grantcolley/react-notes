@@ -804,6 +804,9 @@ function Timer() {
 }
 ```
 
+> [!TIP]
+> `useRef(initialValue)` creates an object like `{ current: initialValue }`.
+
 #### Custom Hooks
 Custom hooks are JavaScript functions that utilize React hooks to encapsulate and reuse logic in function components. The main purpose of custom hooks is promoting code reuse, abstraction of complex logic, and maintainability in React function components.
 \
