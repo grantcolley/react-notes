@@ -783,7 +783,7 @@ function MyComponent() {
 
   return (
     <div>
-      <input ref={inputRef} type="text" /> /* 👈 sets inputRef.current to the DOM input element */
+      <input ref={inputRef} type="text" /> {/* 👈 sets inputRef.current to the DOM input element */}
       <button onClick={focusInput}>Focus the input</button>
     </div>
   );
@@ -814,7 +814,6 @@ function useCounter(initialValue = 0) {
 }
 
 export default useCounter;
-
 ```
 
 Here we use `useCounter` in a component
@@ -862,8 +861,8 @@ const user = { name: 'Alice', age: 25 };
 const { name, age } = user; 		 // 👈 pull out items by their property names.
 console.log(name); // 'Alice'
 console.log(age);  // 25
-
 ```
+
 #### Nested Destructuring
 ```JS
 const person = {
@@ -912,7 +911,6 @@ console.log(sum(1, 2, 3, 4)); // 10
 const { name, ...details } = { name: 'Bob', age: 30, city: 'Paris' };
 console.log(name);    // 'Bob'
 console.log(details); // { age: 30, city: 'Paris' } //👈 name is grabbed separately, and details gathered the rest.
-
 ```
 
 <!--
