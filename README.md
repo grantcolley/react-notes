@@ -950,6 +950,8 @@ A Promise has three states:
 - **Fulfilled** – The operation completed successfully.
 - **Rejected** – The operation failed.
 
+The promise methods `then()`, `catch()`, and `finally()` are used to associate further action with a promise that becomes settled.
+
 ```JavaScript
 // Creating a promise
 let promise = new Promise((resolve, reject) => {
@@ -963,13 +965,25 @@ let promise = new Promise((resolve, reject) => {
 
 // Consuming a promise
 promise
-  .then(result => {	// 👈 Then() handles success
+  .then(result => {	// 👈 then() handles success (resolved)
     console.log("Resolved with:", result);
   })
-  .catch(error => {	// 👈 Then() handles errors
+  .catch(error => {	// 👈 catch() handles errors (rejected)
     console.log("Rejected with:", error);
+  })
+  .finally(info => { 	// 👈 finally() when the promise is settled (either fulfilled or rejected)
+    console.log("All done");
   });
 ```
+
+Prmises can be chained.
+```JavaScript
+promise
+  .then(handleFulfilledA, handleRejectedA)
+  .then(handleFulfilledB, handleRejectedB)
+  .then(handleFulfilledC, handleRejectedC);
+```
+
 
 <!--
 - memory model ?
