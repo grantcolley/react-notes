@@ -49,6 +49,7 @@
   	* [Spread and Rest Operators](#spread-and-rest-operators)
   	  * [Spread Operator](#spread-operator)
   	  * [Rest Operator](#rest-operator)
+  	* [Promise](#promise)
   	  
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -939,6 +940,35 @@ console.log(sum(1, 2, 3, 4)); // 10
 const { name, ...details } = { name: 'Bob', age: 30, city: 'Paris' };
 console.log(name);    // 'Bob'
 console.log(details); // { age: 30, city: 'Paris' } //👈 name is grabbed separately, and details gathered the rest.
+```
+
+### Promise
+A JavaScript **Promise** is a built-in object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+A Promise has three states:
+- **Pending** – Initial state; neither fulfilled nor rejected.
+- **Fulfilled** – The operation completed successfully.
+- **Rejected** – The operation failed.
+
+```JavaScript
+// Creating a promise
+let promise = new Promise((resolve, reject) => {
+  // Do something asynchronous
+  if (success) {
+    resolve("Success!");
+  } else {
+    reject("Error occurred.");
+  }
+});
+
+// Consuming a promise
+promise
+  .then(result => {	// 👈 Then() handles success
+    console.log("Resolved with:", result);
+  })
+  .catch(error => {	// 👈 Then() handles errors
+    console.log("Rejected with:", error);
+  });
 ```
 
 <!--
