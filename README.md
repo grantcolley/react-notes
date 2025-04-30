@@ -976,7 +976,7 @@ promise
   });
 ```
 
-Prmises can be chained.
+Promises can be chained.
 ```JavaScript
 promise
   .then(handleFulfilledA, handleRejectedA)
