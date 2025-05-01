@@ -686,13 +686,13 @@ Using an `if-else` statement directly (inlined) in JSX is discouraged because JS
 ```JSX
 return (
   <div>
-    {if (condition) { return <A /> } else { return <B /> }}  // 👈 🚫 don't use if-else
+    {if (condition) { return <A /> } else { return <B /> }}  	// 👈 🚫 don't use if-else
   </div>
 );
 
 return (
   <div>
-    {condition ? <A /> : <B />}  // 👍 ✅ use ternary operator instead
+    {condition ? <A /> : <B />}  				{ /* 👍 ✅ use ternary operator instead */ }
   </div>
 );
 ```
