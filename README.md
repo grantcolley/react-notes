@@ -36,6 +36,7 @@
   	* [Children Props](#children-props)
   	* [Passing JSX into named Prop](#passing-jsx-into-named-prop)
   	* [Inline Handlers in JSX](#inline-handlers-in-jsx)
+  	* [React Conditional Rendering](#react-conditional-rendering)
   	* [Hooks](#hooks)
   	  * [useState](#usestate)
   	  * [useEffects](#useeffects)
@@ -679,6 +680,25 @@ In this example the `onClick` event is attached directly to the button where the
 > [!WARNING]
 > Inline handlers are quick and convenient for very simple actions however; there is a performance cost. A new function is created every time the component renders, which can hurt performance if used carelessly in big apps.
 
+### React Conditional Rendering
+Using an `if-else` statement directly (inlined) in JSX is discouraged because JSX expects JavaScript expressions, not statements. Instead, you can use a ternary operator, which *is* an expression
+
+```JSX
+return (
+  <div>
+    {if (condition) { return <A /> } else { return <B /> }}  // 👈 🚫 don't use if-else
+  </div>
+);
+
+return (
+  <div>
+    {condition ? <A /> : <B />}  // 👍 ✅ use ternary operator instead
+  </div>
+);
+```
+> [!WARNING]
+> Hooks cannot be used within conditional statements or loops as they must be used at the top level of a function component. 
+
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
 
@@ -736,7 +756,6 @@ function ExampleComponent() {
   return <h1>Hello World</h1>;
 }
 
-
 // Example of cleanup
 useEffect(() => {
   const timer = setTimeout(() => {
@@ -746,8 +765,7 @@ useEffect(() => {
   return () => clearTimeout(timer); /* 👈 The return inside useEffect is a cleanup function. */
 });
 
-// Controlling when useEffect runs (dependencies).
-Pass a second argument: an array of dependencies.
+// Controlling when useEffect runs by passing a second argument: an array of dependencies.
 
 useEffect(() => {
   console.log('Runs only once');
