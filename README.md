@@ -37,8 +37,10 @@
   	* [Passing JSX into named Prop](#passing-jsx-into-named-prop)
   	* [Inline Handlers in JSX](#inline-handlers-in-jsx)
   	* [React Conditional Rendering](#react-conditional-rendering)
+  	* [React Reducer](#react-reducer)
   	* [Hooks](#hooks)
   	  * [useState](#usestate)
+  	  * [useReducer](#useReducer)
   	  * [useEffects](#useeffects)
   	  * [useRef](#useref)
   	  * [Custom Hooks](#custom-hooks)
@@ -720,6 +722,43 @@ function Counter() {
   );
 }
 ```
+
+#### useReducer
+A React reducer is a function used with the `useReducer` Hook to **manage complex state logic** in a React component, especially when:
+- actions trigger multiple state changes.
+- state depends on previous state
+- you have multiple sub-values in state
+
+A reducer is just a function that takes the current `state` and an `action`, and returns a new `state`.
+
+```JSX
+import React, { useReducer } from 'react';
+
+function reducerFunction(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducerFunction, { count: 0 });  // 👈 state = count, dispatch = reducerFunction
+
+  return (
+    <div>
+      <p>{state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+    </div>
+  );
+}
+```
+- `state` is the current state object.
+- `dispatch` is a function (in this case `reducerFunction`) you call to send actions to the reducer.
 
 #### useEffects
 React side-effects are anything your component does besides rendering e.g. interacting with third party API's, and you manage them using the `useEffect` hook!
