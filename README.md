@@ -753,7 +753,7 @@ function Counter() {
 
   return (
     <div>
-      <p>{state.count}</p>
+      <p>{state.count}</p>     		{ /* 👈 consume `count` as a property of `state` */ }
       <button onClick={() => dispatch({ type: 'increment' })}>+</button>
       <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
     </div>
