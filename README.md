@@ -37,7 +37,6 @@
   	* [Passing JSX into named Prop](#passing-jsx-into-named-prop)
   	* [Inline Handlers in JSX](#inline-handlers-in-jsx)
   	* [React Conditional Rendering](#react-conditional-rendering)
-  	* [React Reducer](#react-reducer)
   	* [Hooks](#hooks)
   	  * [useState](#usestate)
   	  * [useReducer](#useReducer)
@@ -731,6 +730,10 @@ A React reducer is a function used with the `useReducer` Hook to **manage comple
 
 A reducer is just a function that takes the current `state` and an `action`, and returns a new `state`.
 
+In the example below we `dispatch` `action`'s to change `state`:
+- `state` is the current state object.
+- `action` tells us how to change `state`
+- `dispatch` is a function (in this case `reducerFunction`) we call to handle updates to `state` based on the type of `action` specified.
 ```JSX
 import React, { useReducer } from 'react';
 
@@ -757,8 +760,6 @@ function Counter() {
   );
 }
 ```
-- `state` is the current state object.
-- `dispatch` is a function (in this case `reducerFunction`) you call to send actions to the reducer.
 
 #### useEffects
 React side-effects are anything your component does besides rendering e.g. interacting with third party API's, and you manage them using the `useEffect` hook!
