@@ -731,13 +731,13 @@ A React reducer is a function used with the `useReducer` Hook to **manage comple
 A reducer is just a function that takes the current `state` and an `action`, and returns a new `state`.
 
 In the example below we `dispatch` `action`'s to change `state`:
-- `state` is the current state object.
-- `action` tells us how to change `state`
-- `dispatch` is a function (in this case `reducerFunction`) we call to handle updates to `state` based on the type of `action` specified.
+- `state` = the state object is `count`
+- `action` = the type is either `increment` or `decrement`, which tells us how to change the value of `count` 
+- `dispatch` = the `changeCount` function, which tells us how to handle updates to `state` based on the type of `action` specified.
 ```JSX
 import React, { useReducer } from 'react';
 
-function reducerFunction(state, action) {
+function changeCount(state, action) {
   switch (action.type) {
     case 'increment':
       return { count: state.count + 1 };
@@ -749,7 +749,7 @@ function reducerFunction(state, action) {
 }
 
 function Counter() {
-  const [state, dispatch] = useReducer(reducerFunction, { count: 0 });  // 👈 state = count, dispatch = reducerFunction
+  const [state, dispatch] = useReducer(changeCount, { count: 0 });  // 👈 state = count, dispatch = changeCount
 
   return (
     <div>
