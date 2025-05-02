@@ -1057,6 +1057,23 @@ promise
 >
 > The `fetch()` method takes one mandatory argument, the path to the resource you want to fetch. It returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that resolves to the [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) to that request — as soon as the server responds with headers — even if the server response is an HTTP error status."
 >
+```JSX
+    React.useEffect(() => {
+      dispatchStories({ type: 'STORIES_FETCH_INIT' });
+
+      fetch(`${API_ENDPOINT}react`)         	// 👈 calling the native browsers fetch API
+      .then((response) => response.json())      // 👈 for the fetch API, the response needs to be translated into JSON
+      .then(result => {
+        dispatchStories({
+          type: 'STORIES_FETCH_SUCCESS',
+          payload: result.hits,                 // 👈 the returned result has a different data structure `result.hits`
+        });
+      })
+      .catch(() =>
+         dispatchStories({ type: 'STORIES_FETCH_FAILURE' }));
+      }, []);
+```
+
 
 <!--
 - memory model ?
