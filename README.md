@@ -910,7 +910,7 @@ function Parent() {
   const [count, setCount] = useState(0);
   const [toggle, setToggle] = useState(false);
 
-  const increment = useCallback(() => {  /* 👈 memoize the increment function so it's not re-created unless its dependencies change.
+  const increment = useCallback(() => {  /* 👈 memoize the increment function so it's not re-created unless its dependencies change. */
     setCount(prevCount => prevCount + 1);
   }, []);
 
@@ -918,7 +918,7 @@ function Parent() {
     <div>
       <h1>Count: {count}</h1>
       <Child onClick={increment} />
-      <button onClick={() => setToggle(!toggle)}> { /* 👈 changing unrelated state doesn’t cause Child to re-render. }
+      <button onClick={() => setToggle(!toggle)}> /* 👈 changing unrelated state doesn’t cause Child to re-render. */
         Toggle Parent State
       </button>
     </div>
@@ -926,7 +926,7 @@ function Parent() {
 }
 
 /* Child */
-const Child = React.memo(({ onClick }) => {    /* 👈 Child is wrapped in `React.memo`, so it only re-renders if its props change.
+const Child = React.memo(({ onClick }) => {    /* 👈 Child is wrapped in `React.memo`, so it only re-renders if its props change. */
   return (
     <button onClick={onClick}>Increment Count</button>
   );
