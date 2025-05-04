@@ -902,6 +902,37 @@ const memoizedCallback = useCallback(() => {
 }, [a, b]);
 ```
 
+This example uses a `useCallback` to memoize a function passed to a child component. This prevents unnecessary re-renders of the child when the parent re-renders for unrelated reasons.
+If `increment` were not memoized, every render of `Parent` would pass a new function, triggering an unnecessary re-render of `Child`.
+```JSX
+// Parent
+function Parent() {
+  const [count, setCount] = useState(0);
+  const [toggle, setToggle] = useState(false);
+
+  const increment = useCallback(() => {  /* 👈 memoize the increment function so it's not re-created unless its dependencies change.
+    setCount(prevCount => prevCount + 1);
+  }, []);
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <Child onClick={increment} />
+      <button onClick={() => setToggle(!toggle)}> /* 👈 click this to change unrelated state that doesn’t cause Child to re-render.
+        Toggle Parent State
+      </button>
+    </div>
+  );
+}
+
+// Child
+const Child = React.memo(({ onClick }) => {    /* 👈 Child is wrapped in `React.memo`, so it only re-renders if its props change.
+  return (
+    <button onClick={onClick}>Increment Count</button>
+  );
+});
+```
+
 ##### useMemo
 `useMemo` memoizes a computed value returned from a function. It's useful when you have expensive calculations that shouldn’t re-run unless needed.
 
