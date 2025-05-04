@@ -918,7 +918,7 @@ function Parent() {
     <div>
       <h1>Count: {count}</h1>
       <Child onClick={increment} />
-      <button onClick={() => setToggle(!toggle)}> /* 👈 click this to change unrelated state that doesn’t cause Child to re-render.
+      <button onClick={() => setToggle(!toggle)}> { /* 👈 changing unrelated state doesn’t cause Child to re-render. }
         Toggle Parent State
       </button>
     </div>
