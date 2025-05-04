@@ -902,6 +902,9 @@ const memoizedCallback = useCallback(() => {
 }, [a, b]);
 ```
 
+> [!WARNING]
+> If the dependencies array is empty, the memoized function is created only once and remains the same throughout the component’s lifecycle.
+
 This example uses a `useCallback` to memoize a function passed to a child component. This prevents unnecessary re-renders of the child when the parent re-renders for unrelated reasons.
 If `increment` were not memoized, every render of `Parent` would pass a new function, triggering an unnecessary re-render of `Child`.
 ```JSX
