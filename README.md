@@ -42,8 +42,9 @@
   	  * [useReducer](#useReducer)
   	  * [useEffects](#useeffects)
   	  * [useRef](#useref)
-  	  * [useCallback](#usecallback)
-  	  * [useMemo](#usememo)
+  	  * [Memoization in React](#memoization-in-react) 
+  	    * [useCallback](#usecallback)
+  	    * [useMemo](#usememo)
   	  * [Custom Hooks](#custom-hooks)
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
@@ -881,8 +882,7 @@ function Timer() {
 > [!TIP]
 > `useRef(initialValue)` creates an object like `{ current: initialValue }`.
 
-#### useCallback
-
+#### Memoization in React
 > [!NOTE]
 > A memoized function in a React component is a function that has been cached so that it doesn't get re-created on every render unless its dependencies change. This improves performance by avoiding unnecessary recalculations or re-renders.
 >
@@ -893,6 +893,7 @@ function Timer() {
 > - Child components that depend on those functions might re-render unnecessarily.
 > - Performance can degrade, especially with complex UIs or large data sets.
 
+##### useCallback
 `useCallback` memoizes a function so that it's not recreated unless its dependencies change. It's useful when passing functions as props to child components to prevent unnecessary re-renders.
 
 ```jSX
@@ -901,7 +902,7 @@ const memoizedCallback = useCallback(() => {
 }, [a, b]);
 ```
 
-#### useCallback
+##### useMemo
 `useMemo` memoizes a computed value returned from a function. It's useful when you have expensive calculations that shouldn’t re-run unless needed.
 
 ```JSX
