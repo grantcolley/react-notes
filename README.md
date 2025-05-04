@@ -42,6 +42,8 @@
   	  * [useReducer](#useReducer)
   	  * [useEffects](#useeffects)
   	  * [useRef](#useref)
+  	  * [useCallback](#usecallback)
+  	  * [useMemo](#usememo)
   	  * [Custom Hooks](#custom-hooks)
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
@@ -862,7 +864,7 @@ function MyComponent() {
 }
 ```
 
-Example 2: Storing mutable value without triggerring a re-render when it changes
+Example 2: Storing a mutable value without triggerring a re-render when it changes
 ```JSX
 function Timer() {
   const count = useRef(0);
@@ -878,6 +880,33 @@ function Timer() {
 
 > [!TIP]
 > `useRef(initialValue)` creates an object like `{ current: initialValue }`.
+
+#### useCallback
+
+> [!NOTE]
+> A memoized function in a React component is a function that has been cached so that it doesn't get re-created on every render unless its dependencies change. This improves performance by avoiding unnecessary recalculations or re-renders.
+>
+> In React, memoization is typically done using `useMemo` or `useCallback`.
+> 
+> React components re-render frequently. Without memoization:
+> - New function instances are created each time.
+> - Child components that depend on those functions might re-render unnecessarily.
+> - Performance can degrade, especially with complex UIs or large data sets.
+
+`useCallback` memoizes a function so that it's not recreated unless its dependencies change. It's useful when passing functions as props to child components to prevent unnecessary re-renders.
+
+```jSX
+const memoizedCallback = useCallback(() => {
+  doSomething(a, b);
+}, [a, b]);
+```
+
+#### useCallback
+`useMemo` memoizes a computed value returned from a function. It's useful when you have expensive calculations that shouldn’t re-run unless needed.
+
+```JSX
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+```
 
 #### Custom Hooks
 Custom hooks are JavaScript functions that utilize React hooks to encapsulate and reuse logic in function components. The main purpose of custom hooks is promoting code reuse, abstraction of complex logic, and maintainability in React function components.
