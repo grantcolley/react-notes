@@ -1110,6 +1110,35 @@ promise
 ```
 
 ### async/await
+`async` and `await` are keywords in JavaScript used for handling asynchronous operations. A function is declared with the `async` keyword and `await` is used within the function to handle promises. The `await` keyword enables asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.
+
+- `async` marks the function as asynchronous, meaning it always returns a Promise.
+- `await` can only be used inside an `async` function and pauses the function execution until the Promise is resolved or rejected.
+
+An `async function` declaration creates an [AsyncFunction](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AsyncFunction) object. Each time when an `async function` is called, it returns a new Promise which will be resolved with the value returned by the `async function`, or rejected with an exception uncaught within the `async function`.
+
+```JSX
+async function fetchData() {  // 👈 `async` marks the function as asynchronous
+  try {
+    const response = await fetch('https://api.example.com/data');  // 👈 `await` pauses until fetch is done
+    const data = await response.json(); // 👈 `await` pauses until JSON is parsed
+    console.log(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+```
+
+Key Benefits of `async/await`
+- Simplifies async flow – code looks synchronous
+- Easier error handling with `try/catch`
+- Improves readability over `.then()` chains
+
+> [!Note]
+>
+> await only works with Promises.
+>
+> Using await blocks execution of the current async function until the Promise resolves.
 
 # Native Browser
 ### Fetch API
