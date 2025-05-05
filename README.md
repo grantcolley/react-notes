@@ -55,6 +55,7 @@
   	  * [Spread Operator](#spread-operator)
   	  * [Rest Operator](#rest-operator)
   	* [Promise](#promise)
+  	* [async/await](#async-await)
 * [Native Browser](#native-browser)
   	* [Fetch API](#fetch-api)
   	  
@@ -1107,6 +1108,8 @@ promise
   .then(handleFulfilledB, handleRejectedB)
   .then(handleFulfilledC, handleRejectedC);
 ```
+
+### async/await
 
 # Native Browser
 ### Fetch API
