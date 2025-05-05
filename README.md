@@ -1140,6 +1140,10 @@ Key Benefits of `async/await`
 >
 > Using await blocks execution of the current async function until the Promise resolves.
 
+> [!Tip]
+>
+> Use `Promise.all()` to handle multiple asynchronous operations concurrently in an async function.
+ 
 # Native Browser
 ### Fetch API
 > [!Note]
