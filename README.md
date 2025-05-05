@@ -55,7 +55,7 @@
   	  * [Spread Operator](#spread-operator)
   	  * [Rest Operator](#rest-operator)
   	* [Promise](#promise)
-  	* [async/await](#async-await)
+  	* [async/await](#asyncawait)
 * [Native Browser](#native-browser)
   	* [Fetch API](#fetch-api)
   	  
