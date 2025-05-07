@@ -710,34 +710,9 @@ return (
 ### React Forms
 Forms in React work a bit differently than in plain HTML. Instead of the browser handling form elements and their state, React takes control by managing the form data in the component's state. This approach is called controlled components.
 
-In a controlled component, form data is handled by React state. Every form input element (like <input>, <textarea>, or <select>) gets its value from state and updates that state on change.
+In a controlled component, form data is handled by React state. Every form input element (like `<input>`, `<textarea>`, or `<select>`) gets its value from state and updates that state on change.
 
-```JSX
-import { useState } from 'react';
 
-function MyForm() {
-  const [name, setName] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // prevent page reload
-    alert(`Submitted name: ${name}`);
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input 
-          type="text" 
-          value={name} 
-          onChange={(e) => setName(e.target.value)} 
-        />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-```
 You can manage multiple fields using a single state object.
 ```JSX
 const [formData, setFormData] = useState({ name: '', email: '' });
