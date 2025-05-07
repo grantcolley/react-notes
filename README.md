@@ -37,6 +37,7 @@
   	* [Passing JSX into named Prop](#passing-jsx-into-named-prop)
   	* [Inline Handlers in JSX](#inline-handlers-in-jsx)
   	* [React Conditional Rendering](#react-conditional-rendering)
+  	* [React Forms](#react-forms)
   	* [Hooks](#hooks)
   	  * [useState](#usestate)
   	  * [useReducer](#useReducer)
@@ -705,6 +706,50 @@ return (
 ```
 > [!WARNING]
 > Hooks cannot be used within conditional statements or loops as they must be used at the top level of a function component. 
+
+### React Forms
+Forms in React work a bit differently than in plain HTML. Instead of the browser handling form elements and their state, React takes control by managing the form data in the component's state. This approach is called controlled components.
+
+In a controlled component, form data is handled by React state. Every form input element (like <input>, <textarea>, or <select>) gets its value from state and updates that state on change.
+
+```JSX
+import { useState } from 'react';
+
+function MyForm() {
+  const [name, setName] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // prevent page reload
+    alert(`Submitted name: ${name}`);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input 
+          type="text" 
+          value={name} 
+          onChange={(e) => setName(e.target.value)} 
+        />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+You can manage multiple fields using a single state object.
+```JSX
+const [formData, setFormData] = useState({ name: '', email: '' });
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setFormData(prev => ({ ...prev, [name]: value }));
+};
+
+<input name="name" value={formData.name} onChange={handleChange} />
+<input name="email" value={formData.email} onChange={handleChange} />
+```
 
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
