@@ -64,7 +64,8 @@
   	* [async/await](#asyncawait)
 * [Native Browser](#native-browser)
   	* [Fetch API](#fetch-api)
-  	  
+* [Deploy a React Application](#deploy-a-react-application)
+	* [Build Process]
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
@@ -1396,10 +1397,22 @@ Key Benefits of `async/await`
       }, []);
 ```
 
-
 <!--
 - memory model ?
 - garbage collection ?
 - DOM ?
 - etc...
 -->
+
+# Deploy a React Application
+### Build Process
+Build the application from the command line to create a new `dist/` folder in the project with the bundled application. This folder can be deployed onto a hosting provider now.
+```CMD
+npm run build
+```
+
+Vite’s local HTTP server can also serve the application.
+
+```CMD
+npm run preview
+```
