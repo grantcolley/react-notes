@@ -65,7 +65,7 @@
 * [Native Browser](#native-browser)
   	* [Fetch API](#fetch-api)
 * [Deploy a React Application](#deploy-a-react-application)
-	* [Build Process]
+	* [Build Process](#build-process)
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
