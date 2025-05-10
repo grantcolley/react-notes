@@ -50,7 +50,8 @@
 * [CSS](#css)
 	* [CSS-in-CSS](#css-in-css)
  	* [CSS-in-JS](#css-in-js)
-  	* [CSS-in-CSS vs CSS-in-JS](#css-in-css-vs-css-in-js) 
+  	* [CSS-in-CSS vs CSS-in-JS](#css-in-css-vs-css-in-js)
+* [SVGs](#svgs)
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
  	  * [Array Destructuring](#array-destructuring)
@@ -1165,6 +1166,24 @@ const StyledButtonLarge = styled(StyledButton)`
 | **Maintainability**       | Separate files can aid large codebases     | Co-locating styles improves readability      |
 | **Media queries/support** | Full CSS feature support                   | Full support with most libraries             |
 | **Server-side rendering** | Requires setup with CSS bundling           | Libraries often provide built-in support     |
+
+#SVGs
+Vite doesn't come aith SVG support so install a Vite plugin and modify the `vite,config.js`.
+
+```CMD
+npm install vite-plugin-svgr --save-dev
+```
+
+```JS
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr"; // 👈 import the plugin
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), svgr()], // 👈 add the plugin
+});
+```
 
 # JavaScript
 ### Destructuring
