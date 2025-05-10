@@ -47,6 +47,9 @@
   	    * [useCallback](#usecallback)
   	    * [useMemo](#usememo)
   	  * [Custom Hooks](#custom-hooks)
+* [CSS](#css)
+	* [CSS-in-CSS](#css-in-css)
+ 	* []  
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
  	  * [Array Destructuring](#array-destructuring)
@@ -1036,6 +1039,40 @@ function CounterComponent() {
 }
 
 export default CounterComponent;
+```
+# CSS
+### CSS-in-CSS
+The **CSS-in-CSS** approach in React refers to styling components using traditional external CSS stylesheets (or occasionally inline `<style>` tags), rather than embedding styles directly into JavaScript or components.
+
+**Key characteristics of CSS-in-CSS:**
+- Styles are written in `.css` (or `.scss`, `.less`, etc.) files.
+- Classes and IDs are defined in those files.
+- React components reference those classes via the className attribute.
+
+Pros:
+- Familiar for anyone with standard HTML/CSS experience.
+- Works well with CSS preprocessors like Sass or Less.
+- Keeps styling concerns separate from logic and markup.
+
+Cons:
+- Styles are global by default, which can lead to conflicts.
+- Doesn't support dynamic styling as easily as CSS-in-JS.
+- Harder to scope styles without tools like CSS Modules.
+
+```CSS
+.button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+```
+```JSX
+import './styles.css';
+
+function ButtonComponent() {
+  return <button className="button">Click Me</button>;
+}
 ```
 
 # JavaScript
