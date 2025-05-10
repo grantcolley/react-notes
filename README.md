@@ -112,6 +112,20 @@ File Extensions
 - `.jsx` → becomes `.tsx` (for components using JSX + TypeScript)
 - `.js` → becomes `.ts` (for plain logic or utility files)
 
+> [!NOTE]
+>
+> Start a new Vite + React + TypeScript project
+> ```CMD
+> npm create vite@latest my-app -- --template react-ts
+> cd my-app
+> npm install
+> ```
+> This sets up everything, including:
+> - React
+> - Vite
+> - TypeScript
+> - Basic tsconfig.json
+
 # Debugging React + Vite in Visual Studio Code
 
 **1. Start the Vite Dev Server**
