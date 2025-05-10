@@ -49,7 +49,8 @@
   	  * [Custom Hooks](#custom-hooks)
 * [CSS](#css)
 	* [CSS-in-CSS](#css-in-css)
- 	* [CSS-in-JS](#css-in-js)  
+ 	* [CSS-in-JS](#css-in-js)
+  	* [CSS-in-CSS vs CSS-in-JS](#css-in-css-vs-css-in-js) 
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
  	  * [Array Destructuring](#array-destructuring)
@@ -1125,6 +1126,20 @@ function ButtonComponent() {
   return <Button>Click Me</Button>;
 }
 ```
+
+### CSS-in-CSS vs CSS-in-JS
+| Feature                   | **CSS-in-CSS**                             | **CSS-in-JS**                                |
+| ------------------------- | ------------------------------------------ | -------------------------------------------- |
+| **Style location**        | Separate `.css` (or `.scss`) files         | Inside JavaScript/React files                |
+| **Scoping**               | Global by default (unless using modules)   | Scoped to the component automatically        |
+| **Dynamic styling**       | Limited, requires classes or inline styles | Easy (uses props, state, themes)             |
+| **Tooling required**      | None (basic setup)                         | Requires a library (e.g., styled-components) |
+| **Familiarity**           | Familiar to most web developers            | May require learning curve                   |
+| **Reusability**           | Class-based, often global reuse            | Component-based, easily reusable             |
+| **Performance**           | Generally faster (less JS overhead)        | Slight runtime or compile-time overhead      |
+| **Maintainability**       | Separate files can aid large codebases     | Co-locating styles improves readability      |
+| **Media queries/support** | Full CSS feature support                   | Full support with most libraries             |
+| **Server-side rendering** | Requires setup with CSS bundling           | Libraries often provide built-in support     |
 
 # JavaScript
 ### Destructuring
