@@ -1168,6 +1168,8 @@ const StyledButtonLarge = styled(StyledButton)`
 | **Server-side rendering** | Requires setup with CSS bundling           | Libraries often provide built-in support     |
 
 # SVGs
+[heroicons](https://heroicons.com/) is once source of SVGs.
+
 Vite doesn't come aith SVG support so install a Vite plugin and modify the `vite,config.js`.
 
 ```CMD
