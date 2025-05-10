@@ -1127,6 +1127,45 @@ function ButtonComponent() {
 }
 ```
 
+> [!TIP]
+>
+> CSS-in-JS supports inheritance like in the example below.
+
+ ```JSX
+const Button = styled.button`
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: darkblue;
+  }
+`;
+
+const StyledButtonSmall = styled(StyledButton)`
+  padding: 5px;
+`;
+
+const StyledButtonLarge = styled(StyledButton)`
+  padding: 10px;
+`;
+```
+
+### CSS-in-CSS vs CSS-in-JS
+| Feature                   | **CSS-in-CSS**                             | **CSS-in-JS**                                |
+| ------------------------- | ------------------------------------------ | -------------------------------------------- |
+| **Style location**        | Separate `.css` (or `.scss`) files         | Inside JavaScript/React files                |
+| **Scoping**               | Global by default (unless using modules)   | Scoped to the component automatically        |
+| **Dynamic styling**       | Limited, requires classes or inline styles | Easy (uses props, state, themes)             |
+| **Tooling required**      | None (basic setup)                         | Requires a library (e.g., styled-components) |
+| **Familiarity**           | Familiar to most web developers            | May require learning curve                   |
+| **Reusability**           | Class-based, often global reuse            | Component-based, easily reusable             |
+| **Performance**           | Generally faster (less JS overhead)        | Slight runtime or compile-time overhead      |
+| **Maintainability**       | Separate files can aid large codebases     | Co-locating styles improves readability      |
+| **Media queries/support** | Full CSS feature support                   | Full support with most libraries             |
+| **Server-side rendering** | Requires setup with CSS bundling           | Libraries often provide built-in support     |
+
 ### CSS-in-CSS vs CSS-in-JS
 | Feature                   | **CSS-in-CSS**                             | **CSS-in-JS**                                |
 | ------------------------- | ------------------------------------------ | -------------------------------------------- |
