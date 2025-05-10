@@ -1167,7 +1167,7 @@ const StyledButtonLarge = styled(StyledButton)`
 | **Media queries/support** | Full CSS feature support                   | Full support with most libraries             |
 | **Server-side rendering** | Requires setup with CSS bundling           | Libraries often provide built-in support     |
 
-#SVGs
+# SVGs
 Vite doesn't come aith SVG support so install a Vite plugin and modify the `vite,config.js`.
 
 ```CMD
