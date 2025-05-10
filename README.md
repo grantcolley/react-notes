@@ -1099,6 +1099,10 @@ Cons:
 - May have performance overhead in large apps.
 - Can be less familiar for developers used to traditional CSS.
 
+> [!NOTE]
+>
+> In the example below, we see the styled object gives you access to an HTML `button` element as a function. Calling the function returns a React component.
+
 ```cmd
 npm install styled-components
 ```
