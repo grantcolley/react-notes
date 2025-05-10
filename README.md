@@ -49,7 +49,7 @@
   	  * [Custom Hooks](#custom-hooks)
 * [CSS](#css)
 	* [CSS-in-CSS](#css-in-css)
- 	* []  
+ 	* [CSS-in-JS](#css-in-js)  
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
  	  * [Array Destructuring](#array-destructuring)
@@ -1072,6 +1072,53 @@ import './styles.css';
 
 function ButtonComponent() {
   return <button className="button">Click Me</button>;
+}
+```
+
+### CSS-in-JS
+The CSS-in-JS approach in React means writing your CSS styles directly within your JavaScript code, typically scoped to a specific component. This allows for dynamic, component-level styling and often uses JavaScript objects or tagged template literals to define styles.
+
+**Key Characteristics of CSS-in-JS:**
+- Styles are co-located with the components they affect.
+- Styles can be dynamic based on props, state, or themes.
+
+You typically use a library like:
+- styled-components
+- Emotion
+- Stitches
+- JSS
+
+Pros:
+- Styles are scoped to components by default.
+- Easier to apply dynamic styles (e.g., based on props or theme).
+- Reduces global CSS conflicts.
+- Encourages modular, reusable design.
+
+Cons:
+- Adds a runtime (or build-time) dependency.
+- May have performance overhead in large apps.
+- Can be less familiar for developers used to traditional CSS.
+
+```cmd
+npm install styled-components
+```
+
+```JSX
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: darkblue;
+  }
+`;
+
+function ButtonComponent() {
+  return <Button>Click Me</Button>;
 }
 ```
 
