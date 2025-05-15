@@ -12,7 +12,6 @@
 * [Tooling](#tooling)
 	* [Vite](#vite)
  	* [ESLint](#eslint)	 
- 	* [TypeScript](#typescript)
 * [Debugging React + Vite in Visual Studio Code](#debugging-react--vite-in-visual-studio-code)
 * [package.json](#packagejson)
 * [React DOM](#react-dom)
@@ -66,6 +65,8 @@
   	* [Fetch API](#fetch-api)
 * [Deploy a React Application](#deploy-a-react-application)
 	* [Build Process](#build-process)
+* [TypeScript](#typescript)
+
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
@@ -101,31 +102,6 @@ npm -v
 	 
 ### ESLint
 [ESLint](https://eslint.org/) is a tool that analyzes your code for potential errors, bugs, stylistic issues, and code quality problems
-
-### TypeScript
-[TypeScript](https://www.typescriptlang.org/) is a superset of JavaScript that adds Type safety resulting in fewer runtime bugs.
-
-How it works is you write TypeScript code in `.ts` files and TypeScript compiles them to regular JavaScript `.js` files.
-
-React normally uses JavaScript (JSX), but with TypeScript (TSX), you get all the typing benefits without giving up JSX.
-
-File Extensions
-- `.jsx` → becomes `.tsx` (for components using JSX + TypeScript)
-- `.js` → becomes `.ts` (for plain logic or utility files)
-
-> [!NOTE]
->
-> Start a new Vite + React + TypeScript project
-> ```CMD
-> npm create vite@latest my-app -- --template react-ts
-> cd my-app
-> npm install
-> ```
-> This sets up everything, including:
-> - React
-> - Vite
-> - TypeScript
-> - Basic tsconfig.json
 
 # Debugging React + Vite in Visual Studio Code
 
@@ -1416,3 +1392,29 @@ Vite’s local HTTP server can also serve the application.
 ```CMD
 npm run preview
 ```
+
+# TypeScript
+[TypeScript](https://www.typescriptlang.org/) is a superset of JavaScript that adds Type safety resulting in fewer runtime bugs.
+
+How it works is you write TypeScript code in `.ts` files and TypeScript compiles them to regular JavaScript `.js` files.
+
+React normally uses JavaScript (JSX), but with TypeScript (TSX), you get all the typing benefits without giving up JSX.
+
+File Extensions
+- `.jsx` → becomes `.tsx` (for components using JSX + TypeScript)
+- `.js` → becomes `.ts` (for plain logic or utility files)
+
+> [!NOTE]
+>
+> Start a new Vite + React + TypeScript project
+> ```CMD
+> npm create vite@latest my-app -- --template react-ts
+> cd my-app
+> npm install
+> ```
+> This sets up everything, including:
+> - React
+> - Vite
+> - TypeScript
+> - Basic tsconfig.json
+
