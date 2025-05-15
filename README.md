@@ -1190,6 +1190,57 @@ import Check from "./check.svg?react";
 
 <Check height="18px" width="18px" />
 ```
+ 
+# Native Browser
+### Fetch API
+> [!Note]
+> ...from [mdn wed docs](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+>
+> "The Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest).
+>
+> The Fetch API uses [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) and [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) objects (and other things involved with network requests), as well as related concepts such as CORS and the HTTP Origin header semantics.
+>
+> For making a request and fetching a resource, use the [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) method. It is a global method in both [Window](https://developer.mozilla.org/en-US/docs/Web/API/Window) and [Worker](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope) contexts. This makes it available in pretty much any context you might want to fetch resources in.
+>
+> The `fetch()` method takes one mandatory argument, the path to the resource you want to fetch. It returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that resolves to the [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) to that request — as soon as the server responds with headers — even if the server response is an HTTP error status."
+>
+```JSX
+    React.useEffect(() => {
+      dispatchStories({ type: 'STORIES_FETCH_INIT' });
+
+      fetch(`${API_ENDPOINT}react`)         	// 👈 calling the native browsers fetch API
+      .then((response) => response.json())      // 👈 for the fetch API, the response needs to be translated into JSON
+      .then(result => {
+        dispatchStories({
+          type: 'STORIES_FETCH_SUCCESS',
+          payload: result.hits,                 // 👈 the returned result has a different data structure `result.hits`
+        });
+      })
+      .catch(() =>
+         dispatchStories({ type: 'STORIES_FETCH_FAILURE' }));
+      }, []);
+```
+
+<!--
+- memory model ?
+- garbage collection ?
+- DOM ?
+- etc...
+-->
+
+# Deploy a React Application
+### Build Process
+Build the application from the command line to create a new `dist/` folder in the project with the bundled application. This folder can be deployed onto a hosting provider now.
+```CMD
+npm run build
+```
+
+Vite’s local HTTP server can also serve the application.
+
+```CMD
+npm run preview
+```
+
 # JavaScript
 ### Destructuring
 Destructuring is a way to unpack values from arrays or properties from objects into individual variables easily.
@@ -1342,56 +1393,6 @@ Key Benefits of `async/await`
 > [!Tip]
 >
 > Use `Promise.all()` to handle multiple asynchronous operations concurrently in an async function.
- 
-# Native Browser
-### Fetch API
-> [!Note]
-> ...from [mdn wed docs](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
->
-> "The Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest).
->
-> The Fetch API uses [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) and [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) objects (and other things involved with network requests), as well as related concepts such as CORS and the HTTP Origin header semantics.
->
-> For making a request and fetching a resource, use the [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) method. It is a global method in both [Window](https://developer.mozilla.org/en-US/docs/Web/API/Window) and [Worker](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope) contexts. This makes it available in pretty much any context you might want to fetch resources in.
->
-> The `fetch()` method takes one mandatory argument, the path to the resource you want to fetch. It returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that resolves to the [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) to that request — as soon as the server responds with headers — even if the server response is an HTTP error status."
->
-```JSX
-    React.useEffect(() => {
-      dispatchStories({ type: 'STORIES_FETCH_INIT' });
-
-      fetch(`${API_ENDPOINT}react`)         	// 👈 calling the native browsers fetch API
-      .then((response) => response.json())      // 👈 for the fetch API, the response needs to be translated into JSON
-      .then(result => {
-        dispatchStories({
-          type: 'STORIES_FETCH_SUCCESS',
-          payload: result.hits,                 // 👈 the returned result has a different data structure `result.hits`
-        });
-      })
-      .catch(() =>
-         dispatchStories({ type: 'STORIES_FETCH_FAILURE' }));
-      }, []);
-```
-
-<!--
-- memory model ?
-- garbage collection ?
-- DOM ?
-- etc...
--->
-
-# Deploy a React Application
-### Build Process
-Build the application from the command line to create a new `dist/` folder in the project with the bundled application. This folder can be deployed onto a hosting provider now.
-```CMD
-npm run build
-```
-
-Vite’s local HTTP server can also serve the application.
-
-```CMD
-npm run preview
-```
 
 # TypeScript
 [TypeScript](https://www.typescriptlang.org/) is a superset of JavaScript that adds Type safety resulting in fewer runtime bugs.
