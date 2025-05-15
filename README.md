@@ -1395,7 +1395,7 @@ Key Benefits of `async/await`
 > Use `Promise.all()` to handle multiple asynchronous operations concurrently in an async function.
 
 # TypeScript
-[TypeScript](https://www.typescriptlang.org/) is a superset of JavaScript that adds Type safety resulting in fewer runtime bugs.
+[TypeScript](https://www.typescriptlang.org/) was first released in 2012. It is a superset of JavaScript that adds Type safety resulting in fewer runtime bugs.
 
 How it works is you write TypeScript code in `.ts` files and TypeScript compiles them to regular JavaScript `.js` files.
 
