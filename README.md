@@ -1397,6 +1397,8 @@ Key Benefits of `async/await`
 # TypeScript
 [TypeScript](https://www.typescriptlang.org/) was first released in 2012. It is a superset of JavaScript that adds Type safety resulting in fewer runtime bugs.
 
+TypeScript can’t be executed directly in a browser – it must be transpiled into JavaScript first.
+
 How it works is you write TypeScript code in `.ts` files and TypeScript compiles them to regular JavaScript `.js` files.
 
 React normally uses JavaScript (JSX), but with TypeScript (TSX), you get all the typing benefits without giving up JSX.
