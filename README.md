@@ -68,7 +68,7 @@
 * [TypeScript](#typescript)
 	* [TypeScript vs JavaScript](#typescript-vs-javascript)
  	  * [JavaScript Example](#javascript-example)
-	  * [TypeScript Example] 
+	  * [TypeScript Example](#typescript-example)
 
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
