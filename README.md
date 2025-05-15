@@ -66,6 +66,7 @@
   	* [Promise](#promise)
   	* [async/await](#asyncawait)
 * [TypeScript](#typescript)
+	* [TypeScript vs JavaScript](#typescript-vs-javascript)
 
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -1397,6 +1398,8 @@ Key Benefits of `async/await`
 # TypeScript
 [TypeScript](https://www.typescriptlang.org/) was first released in 2012. It is a superset of JavaScript that adds Type safety resulting in fewer runtime bugs.
 
+When a JavaScript codebase grows, it can become hard to read and maintain. TypeScript’s type system solves this problem. TypeScript uses the type system to allow code editors to catch type errors as developers write problematic code.
+
 TypeScript can’t be executed directly in a browser – it must be transpiled into JavaScript first.
 
 How it works is you write TypeScript code in `.ts` files and TypeScript compiles them to regular JavaScript `.js` files.
@@ -1420,4 +1423,15 @@ File Extensions
 > - Vite
 > - TypeScript
 > - Basic tsconfig.json
+
+### TypeScript vs JavaScript
+| Feature                     | JavaScript | TypeScript |
+| --------------------------- | ---------- | ---------- |
+| Static typing               | ❌          | ✅          |
+| Interfaces & custom types   | ❌          | ✅          |
+| Compile-time error checking | ❌          | ✅          |
+| Enums                       | ❌          | ✅          |
+| Access modifiers            | ❌          | ✅          |
+| Generics                    | ❌          | ✅          |
+| IDE auto-complete accuracy  | 🔶 Partial  | ✅          |
 
