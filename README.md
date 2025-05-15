@@ -51,6 +51,10 @@
  	* [CSS-in-JS](#css-in-js)
   	* [CSS-in-CSS vs CSS-in-JS](#css-in-css-vs-css-in-js)
 * [SVGs](#svgs)
+* [Native Browser](#native-browser)
+  	* [Fetch API](#fetch-api)
+* [Deploy a React Application](#deploy-a-react-application)
+	* [Build Process](#build-process)
 * [JavaScript](#javascript)
 	* [Destructuring](#destructuring)
  	  * [Array Destructuring](#array-destructuring)
@@ -61,10 +65,6 @@
   	  * [Rest Operator](#rest-operator)
   	* [Promise](#promise)
   	* [async/await](#asyncawait)
-* [Native Browser](#native-browser)
-  	* [Fetch API](#fetch-api)
-* [Deploy a React Application](#deploy-a-react-application)
-	* [Build Process](#build-process)
 * [TypeScript](#typescript)
 
 # About React
