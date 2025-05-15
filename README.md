@@ -67,6 +67,8 @@
   	* [async/await](#asyncawait)
 * [TypeScript](#typescript)
 	* [TypeScript vs JavaScript](#typescript-vs-javascript)
+ 	  * [JavaScript Example](#javascript-example)
+	  * [TypeScript Example] 
 
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -1435,3 +1437,39 @@ File Extensions
 | Generics                    | ❌          | ✅          |
 | IDE auto-complete accuracy  | 🔶 Partial  | ✅          |
 
+#### JavaScript Example
+```JavaScript
+function fetchUser(id) {
+  return fetch(`/api/users/${id}`)
+    .then(res => res.json())
+    .then(user => {
+      console.log(user.name.toUpperCase()); // might throw error if name is undefined
+    });
+}
+```
+🔻 Problems:
+- No type checking: `id` can be anything.
+- No guarantees about `user`: Does it have `name`? Is `name` a string?
+- Errors will only appear at runtime, not during development.
+
+#### TypeScript Example
+```TypeScript
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+function fetchUser(id: number): Promise<void> {
+  return fetch(`/api/users/${id}`)
+    .then(res => res.json())
+    .then((user: User) => {
+      console.log(user.name.toUpperCase()); // safe, 'name' is guaranteed to be a string
+    });
+}
+```
+✅ Advantages:
+- `id` must be a `number`
+- `user` is explicitly typed as a `User` object
+- Autocompletion and inline docs in your editor
+- Compile-time error if you try to access a non-existent property like `user.phoneNumber`
