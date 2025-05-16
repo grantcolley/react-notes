@@ -1441,6 +1441,7 @@ File Extensions
 
 #### Static vs. Dynamic Typing
 JavaScript - Dynamically typed. Variables can hold any type, and types are checked at runtime.
+\
 TypeScript - Statically typed (with optional typing). Types are checked at compile time.
 ```JS
 // JavaScript
@@ -1455,6 +1456,7 @@ value = "hello"; // Error: Type 'string' is not assignable to type 'number'
 
 #### Type Inference
 JavaScript - No type inference; types are only known at runtime.
+\
 TypeScript- Uses type inference to deduce variable types even when not explicitly declared.
 ```TS
 // TypeScript
@@ -1464,6 +1466,7 @@ message = 123;      // Error
 
 #### Type Annotations
 JavaScript - No built-in syntax for type annotations.
+\
 TypeScript - Allows explicit type annotations for variables, function parameters, return types, etc.
 ```TS
 // TypeScript
