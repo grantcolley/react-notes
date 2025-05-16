@@ -1457,7 +1457,7 @@ value = "hello"; // Error: Type 'string' is not assignable to type 'number'
 #### Type Inference
 JavaScript - No type inference; types are only known at runtime.
 \
-TypeScript- Uses type inference to deduce variable types even when not explicitly declared.
+TypeScript - Uses type inference to deduce variable types even when not explicitly declared.
 ```TS
 // TypeScript
 let message = "Hi"; // inferred as string
