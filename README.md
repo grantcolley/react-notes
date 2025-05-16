@@ -1462,7 +1462,7 @@ let message = "Hi"; // inferred as string
 message = 123;      // Error
 ```
 
-### Type Annotations
+#### Type Annotations
 JavaScript - No built-in syntax for type annotations.
 TypeScript - Allows explicit type annotations for variables, function parameters, return types, etc.
 ```TS
@@ -1472,7 +1472,7 @@ function greet(name: string): string {
 }
 ```
 
-### Advanced Type Features in TypeScript
+#### Advanced Type Features in TypeScript
 TypeScript supports many type system features not available in JavaScript:
 - Interfaces & Types
 - Generics
