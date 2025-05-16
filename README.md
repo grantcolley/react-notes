@@ -1437,39 +1437,45 @@ File Extensions
 | Generics                    | ❌          | ✅          |
 | IDE auto-complete accuracy  | 🔶 Partial  | ✅          |
 
-#### JavaScript Example
-```JavaScript
-function fetchUser(id) {
-  return fetch(`/api/users/${id}`)
-    .then(res => res.json())
-    .then(user => {
-      console.log(user.name.toUpperCase()); // might throw error if name is undefined
-    });
+#### Static vs. Dynamic Typing
+JavaScript - Dynamically typed. Variables can hold any type, and types are checked at runtime.
+TypeScript - Statically typed (with optional typing). Types are checked at compile time.
+```JS
+// JavaScript
+let value = 42;  // number
+value = "hello"; // now a string
+```
+```TS
+// TypeScript
+let value: number = 42;
+value = "hello"; // Error: Type 'string' is not assignable to type 'number'
+```
+
+#### Type Inference
+JavaScript - No type inference; types are only known at runtime.
+TypeScript- Uses type inference to deduce variable types even when not explicitly declared.
+```TS
+// TypeScript
+let message = "Hi"; // inferred as string
+message = 123;      // Error
+```
+
+### Type Annotations
+JavaScript - No built-in syntax for type annotations.
+TypeScript - Allows explicit type annotations for variables, function parameters, return types, etc.
+```TS
+// TypeScript
+function greet(name: string): string {
+  return "Hello, " + name;
 }
 ```
-🔻 Problems:
-- No type checking: `id` can be anything.
-- No guarantees about `user`: Does it have `name`? Is `name` a string?
-- Errors will only appear at runtime, not during development.
 
-#### TypeScript Example
-```TypeScript
-type User = {
-  id: number;
-  name: string;
-  email: string;
-};
-
-function fetchUser(id: number): Promise<void> {
-  return fetch(`/api/users/${id}`)
-    .then(res => res.json())
-    .then((user: User) => {
-      console.log(user.name.toUpperCase()); // safe, 'name' is guaranteed to be a string
-    });
-}
-```
-✅ Advantages:
-- `id` must be a `number`
-- `user` is explicitly typed as a `User` object
-- Autocompletion and inline docs in your editor
-- Compile-time error if you try to access a non-existent property like `user.phoneNumber`
+### Advanced Type Features in TypeScript
+TypeScript supports many type system features not available in JavaScript:
+- Interfaces & Types
+- Generics
+- Tuples
+- Enums
+- Union & Intersection Types
+- Literal Types
+- Mapped & Conditional Types
