@@ -67,9 +67,11 @@
   	* [async/await](#asyncawait)
 * [TypeScript](#typescript)
 	* [TypeScript vs JavaScript](#typescript-vs-javascript)
- 	  * [JavaScript Example](#javascript-example)
-	  * [TypeScript Example](#typescript-example)
-
+ 	  * [Static vs. Dynamic Typing](#static-vs-dynamic-typing)
+ 	  * [Type Inference](#type-inference)
+	  * [Type Annotations](#type-annotations)
+	  * [Advanced Type Features in TypeScript](#advanced-type-features-in-typescript)
+     
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
