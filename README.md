@@ -1487,3 +1487,20 @@ TypeScript supports many type system features not available in JavaScript:
 - Mapped & Conditional Types
 
 ### TypeScript Type Annotations
+In TypeScript, type annotations enable variables to be declared with specific types allowing the TypeScript compiler to check the code adheres to these types.
+```TypeScript
+let unitPrice: number;			// 👈 declare variable type
+unitPrice = 123;
+
+let quantity = 10;			// 👈 inferred type
+
+let total = getTotal(unitPrice, quantity);
+
+function getTotal(
+	unitPrice: number,		// 👈 declare parameter type
+	quantity: number
+	): number {   			// 👈 declare function return type
+ const total = unitPrice * quantity;
+ return total;
+}
+```
