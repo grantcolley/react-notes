@@ -56,6 +56,9 @@
 * [Deploy a React Application](#deploy-a-react-application)
 	* [Build Process](#build-process)
 * [JavaScript](#javascript)
+	* [JavaScript Types](#javascript-types)
+ 	  * [Primitive Types](#primitive-types)
+ 	  * [Object Types](#object-types) 
 	* [Destructuring](#destructuring)
  	  * [Array Destructuring](#array-destructuring)
  	  * [Object Destructuring](#object-destructuring)
@@ -65,12 +68,12 @@
   	  * [Rest Operator](#rest-operator)
   	* [Promise](#promise)
   	* [async/await](#asyncawait)
+* [TypeScript vs JavaScript](#typescript-vs-javascript)
+	* [Static vs. Dynamic Typing](#static-vs-dynamic-typing)
+ 	* [Type Inference](#type-inference)
+	* [Type Annotations](#type-annotations)
+	* [Advanced Type Features in TypeScript](#advanced-type-features-in-typescript)
 * [TypeScript](#typescript)
-	* [TypeScript vs JavaScript](#typescript-vs-javascript)
- 	  * [Static vs. Dynamic Typing](#static-vs-dynamic-typing)
- 	  * [Type Inference](#type-inference)
-	  * [Type Annotations](#type-annotations)
-	  * [Advanced Type Features in TypeScript](#advanced-type-features-in-typescript)
 	* [TypeScript Type Annotations](#typescript-type-annotations)
 
 # About React
@@ -1248,6 +1251,35 @@ npm run preview
 ```
 
 # JavaScript
+### JavaScript Types
+#### Primitive Types
+Primitive Types are immutable and passed by value.
+- string: textual data e.g. `"Hello"`, `'World'`, ``Template Literal``
+- number: both integer and floating-point numbers e.g. `42, 3.14, -0, Infinity, NaN`
+- bigint: integers of arbitrary length e.g. `1234567890123456789012345678901234567890n`
+- boolean: true or false e.g. `true`, `false`
+- undefined: a variable that has been declared but not assigned a value e.g. `let x; // x is undefined`
+- null: represents the intentional absence of any value e.g.  `let y = null;`
+- symbol: a unique and immutable value, often used as object keys e.g. `const sym = Symbol('desc');`
+
+### Object Types
+Object Types are mutable and passed by reference.
+- Object: generic collections of key-value pairs e.g. `{ name: "Alice", age: 30 }`
+- Array: ordered collections e.g. `[1, 2, 3]`
+- Function: callable objects e.g. `function greet() { return "Hello"; }`
+- Date, RegExp, Map, Set, WeakMap, WeakSet, etc.
+- Built-in objects with specialized behavior.
+
+> [!IMPORTANT]
+>
+> - Type coercion: JavaScript is dynamically typed, so variables can change type at runtime.
+>
+> - `typeof` operator: Can be used to check most types, but some quirks exist:
+> \
+> `typeof null === "object"` (this is a historical bug in JavaScript)
+
+
+
 ### Destructuring
 Destructuring is a way to unpack values from arrays or properties from objects into individual variables easily.
 
@@ -1400,6 +1432,63 @@ Key Benefits of `async/await`
 >
 > Use `Promise.all()` to handle multiple asynchronous operations concurrently in an async function.
 
+# TypeScript vs JavaScript
+| Feature                     | JavaScript | TypeScript |
+| --------------------------- | ---------- | ---------- |
+| Static typing               | ❌          | ✅          |
+| Interfaces & custom types   | ❌          | ✅          |
+| Compile-time error checking | ❌          | ✅          |
+| Enums                       | ❌          | ✅          |
+| Access modifiers            | ❌          | ✅          |
+| Generics                    | ❌          | ✅          |
+| IDE auto-complete accuracy  | 🔶 Partial  | ✅          |
+
+### Static vs. Dynamic Typing
+JavaScript - Dynamically typed. Variables can hold any type, and types are checked at runtime.
+\
+TypeScript - Statically typed (with optional typing). Types are checked at compile time.
+```JS
+// JavaScript
+let value = 42;  // number
+value = "hello"; // now a string
+```
+```TS
+// TypeScript
+let value: number = 42;
+value = "hello"; // Error: Type 'string' is not assignable to type 'number'
+```
+
+### Type Inference
+JavaScript - No type inference; types are only known at runtime.
+\
+TypeScript - Uses type inference to deduce variable types even when not explicitly declared.
+```TS
+// TypeScript
+let message = "Hi"; // inferred as string
+message = 123;      // Error
+```
+
+### Type Annotations
+JavaScript - No built-in syntax for type annotations.
+\
+TypeScript - Allows explicit type annotations for variables, function parameters, return types, etc.
+```TS
+// TypeScript
+function greet(name: string): string {
+  return "Hello, " + name;
+}
+```
+
+### Advanced Type Features in TypeScript
+TypeScript supports many type system features not available in JavaScript:
+- Interfaces & Types
+- Generics
+- Tuples
+- Enums
+- Union & Intersection Types
+- Literal Types
+- Mapped & Conditional Types
+
 # TypeScript
 [TypeScript](https://www.typescriptlang.org/) was first released in 2012. It is a superset of JavaScript that adds Type safety resulting in fewer runtime bugs.
 
@@ -1428,63 +1517,6 @@ File Extensions
 > - Vite
 > - TypeScript
 > - Basic tsconfig.json
-
-### TypeScript vs JavaScript
-| Feature                     | JavaScript | TypeScript |
-| --------------------------- | ---------- | ---------- |
-| Static typing               | ❌          | ✅          |
-| Interfaces & custom types   | ❌          | ✅          |
-| Compile-time error checking | ❌          | ✅          |
-| Enums                       | ❌          | ✅          |
-| Access modifiers            | ❌          | ✅          |
-| Generics                    | ❌          | ✅          |
-| IDE auto-complete accuracy  | 🔶 Partial  | ✅          |
-
-#### Static vs. Dynamic Typing
-JavaScript - Dynamically typed. Variables can hold any type, and types are checked at runtime.
-\
-TypeScript - Statically typed (with optional typing). Types are checked at compile time.
-```JS
-// JavaScript
-let value = 42;  // number
-value = "hello"; // now a string
-```
-```TS
-// TypeScript
-let value: number = 42;
-value = "hello"; // Error: Type 'string' is not assignable to type 'number'
-```
-
-#### Type Inference
-JavaScript - No type inference; types are only known at runtime.
-\
-TypeScript - Uses type inference to deduce variable types even when not explicitly declared.
-```TS
-// TypeScript
-let message = "Hi"; // inferred as string
-message = 123;      // Error
-```
-
-#### Type Annotations
-JavaScript - No built-in syntax for type annotations.
-\
-TypeScript - Allows explicit type annotations for variables, function parameters, return types, etc.
-```TS
-// TypeScript
-function greet(name: string): string {
-  return "Hello, " + name;
-}
-```
-
-#### Advanced Type Features in TypeScript
-TypeScript supports many type system features not available in JavaScript:
-- Interfaces & Types
-- Generics
-- Tuples
-- Enums
-- Union & Intersection Types
-- Literal Types
-- Mapped & Conditional Types
 
 ### TypeScript Type Annotations
 In TypeScript, type annotations enable variables to be declared with specific types allowing the TypeScript compiler to check the code adheres to these types.
