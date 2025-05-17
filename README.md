@@ -1274,6 +1274,8 @@ Object Types are mutable and passed by reference.
 >
 > - Type coercion: JavaScript is dynamically typed, so variables can change type at runtime.
 >
+> - Arrays are technically objects, but you can detect them using `Array.isArray(arr)`
+> 
 > - `typeof` operator: Can be used to check most types, but some quirks exist:
 > \
 > `typeof null === "object"` (this is a historical bug in JavaScript)
