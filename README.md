@@ -1254,20 +1254,20 @@ npm run preview
 ### JavaScript Types
 #### Primitive Types
 Primitive Types are immutable and passed by value.
-- string: textual data e.g. `"Hello"`, `'World'`, ``Template Literal``
-- number: both integer and floating-point numbers e.g. `42, 3.14, -0, Infinity, NaN`
-- bigint: integers of arbitrary length e.g. `1234567890123456789012345678901234567890n`
-- boolean: true or false e.g. `true`, `false`
-- undefined: a variable that has been declared but not assigned a value e.g. `let x; // x is undefined`
-- null: represents the intentional absence of any value e.g.  `let y = null;`
-- symbol: a unique and immutable value, often used as object keys e.g. `const sym = Symbol('desc');`
+- **string**: textual data e.g. `"Hello"`, `'World'`, ``Template Literal``
+- **number**: both integer and floating-point numbers e.g. `42, 3.14, -0, Infinity, NaN`
+- **bigint**: integers of arbitrary length e.g. `1234567890123456789012345678901234567890n`
+- **boolean**: true or false e.g. `true`, `false`
+- **undefined**: a variable that has been declared but not assigned a value e.g. `let x; // x is undefined`
+- **null**: represents the intentional absence of any value e.g.  `let y = null;`
+- **symbol**: a unique and immutable value, often used as object keys e.g. `const sym = Symbol('desc');`
 
 ### Object Types
 Object Types are mutable and passed by reference.
-- Object: generic collections of key-value pairs e.g. `{ name: "Alice", age: 30 }`
-- Array: ordered collections e.g. `[1, 2, 3]`
-- Function: callable objects e.g. `function greet() { return "Hello"; }`
-- Date, RegExp, Map, Set, WeakMap, WeakSet, etc.
+- **Object**: generic collections of key-value pairs e.g. `{ name: "Alice", age: 30 }`
+- **Array**: ordered collections e.g. `[1, 2, 3]`
+- **Function**: callable objects e.g. `function greet() { return "Hello"; }`
+- **Date**, **RegExp**, **Map**, **Set**, **WeakMap**, **WeakSet**, etc.
 - Built-in objects with specialized behavior.
 
 > [!IMPORTANT]
