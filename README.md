@@ -71,7 +71,8 @@
  	  * [Type Inference](#type-inference)
 	  * [Type Annotations](#type-annotations)
 	  * [Advanced Type Features in TypeScript](#advanced-type-features-in-typescript)
-     
+	* [TypeScript Type Annotations](#typescript-type-annotations)
+
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
@@ -1484,3 +1485,5 @@ TypeScript supports many type system features not available in JavaScript:
 - Union & Intersection Types
 - Literal Types
 - Mapped & Conditional Types
+
+### TypeScript Type Annotations
