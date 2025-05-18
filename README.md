@@ -1559,7 +1559,7 @@ TypeScript supports all [JavaScript types](#javascript-types) and adds many more
 | ---------------------------- | ----------------------------------------------------------------- |
 | **Union**                    | <code>let id: string &#124; number = "abc"; // variable holds many types</code> |
 | **Intersection**             | `type A = { a: string }; type B = { b: number }; type C = A & B;` |
-| **Literal**                  | <code>let dir: "up" \| "down";</code>                             |
+| **Literal**                  | <code>let dir: "up" \| "down"; // value is literally fixed</code> |
 | **Type Aliases**             | `type Point = { x: number, y: number };`                          |
 | **Interfaces**               | `interface Person { name: string; age: number; }`                 |
 | **Generics**                 | `function identity<T>(arg: T): T { return arg; }`                 |
