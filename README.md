@@ -77,7 +77,7 @@
 	* [TypeScript Type Annotations](#typescript-type-annotations)
 	* [TypeScript Types](#typescript-types)
  	  * [Special Types](#special-types)
-          * [Advanced Types](#advanced-types)
+ 	  * [Advanced Types](#advanced-types)
             
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
