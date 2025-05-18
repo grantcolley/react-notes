@@ -75,7 +75,10 @@
 	* [Advanced Type Features in TypeScript](#advanced-type-features-in-typescript)
 * [TypeScript](#typescript)
 	* [TypeScript Type Annotations](#typescript-type-annotations)
-
+	* [TypeScript Types](#typescript-types)
+ 	  * [Special Types](#special-types)
+          * [Advanced Types](#advanced-types)
+            
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
@@ -1538,3 +1541,29 @@ function getTotal(
  return total;
 }
 ```
+
+### TypeScript Types
+TypeScript supports all [JavaScript types](#javascript-types) and adds many more powerful ones.
+
+#### Special Types
+| **Type**  | **Description**                                 | **Example**                                     |
+| --------- | ----------------------------------------------- | ----------------------------------------------- |
+| `any`     | Turns off type checking                         | `let x: any = 5;`                               |
+| `unknown` | Like `any`, but must be type-checked before use | `let x: unknown = 5;`                           |
+| `void`    | No return value (used in functions)             | `function log(): void {}`                       |
+| `never`   | Represents values that never occur              | `function fail(): never { throw new Error(); }` |
+| `enum`    | Enumerated values                               | `enum Color { Red, Green }`                     |
+
+#### Advanced Types
+| **Type**                     | **Example**                                                       |
+| ---------------------------- | ----------------------------------------------------------------- |
+| **Union**                    | <code>let id: string &#124; number = "abc"; // variable holds many types</code> |
+| **Intersection**             | `type A = { a: string }; type B = { b: number }; type C = A & B;` |
+| **Literal**                  | <code>let dir: "up" \| "down";</code>                             |
+| **Type Aliases**             | `type Point = { x: number, y: number };`                          |
+| **Interfaces**               | `interface Person { name: string; age: number; }`                 |
+| **Generics**                 | `function identity<T>(arg: T): T { return arg; }`                 |
+| **Type Assertions**          | `let val = <string>someValue;` or `someValue as string;`          |
+| **Mapped/Conditional Types** | Advanced meta-programming with types                              |
+
+
