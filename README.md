@@ -89,9 +89,9 @@
 	  * [Abstract Classes and Methods](#abstract-classes-and-methods)
 	* [Enumerations](#enumerations)
    	* [Union Type](#union-type)
-     	  * [Unions and Variables](#unions-and-variables)
+   	  * [Unions and Variables](#unions-and-variables)
    	  * [Flexible Function Parameters](#flexible-function-parameters)
-   	  * [Unions with Custom Types](##unions-with-custom-types)
+   	  * [Unions with Custom Types](#unions-with-custom-types)
    	  * [Union of Literal Types](#union-of-literal-types)
 
 # About React
