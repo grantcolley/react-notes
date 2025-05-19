@@ -87,7 +87,8 @@
  	  * [Static Members](#static-members)
  	  * [Getters and Setters](#getters-and-setters)
 	  * [Abstract Classes and Methods](#abstract-classes-and-methods)
-
+	* [Enumerations](#enumerations)
+   
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
@@ -1815,3 +1816,51 @@ class Square extends Shape {
   }
 }
 ```
+
+### Enumerations
+An `enum` is a special data type that allows you to define a set of named constants.
+
+`enum` is numeric by default, but can also be string.
+
+```TypeScript
+enum Direction {
+  North, // 0    // 👈 enums are numeric by default
+  East,  // 1
+  South, // 2
+  West   // 3
+}
+
+let dir: Direction = Direction.North;
+console.log(dir); // 0
+
+
+enum Status {
+  Pending = "PENDING", // 👈 string enums are supported
+  InProgress = "IN_PROGRESS",
+  Done = "DONE"
+}
+
+let taskStatus: Status = Status.InProgress;
+console.log(taskStatus); // "IN_PROGRESS"
+```
+
+> [!TIP]
+>  Const Enums (const enum)
+>
+> Use `const enum` to improve performance by inlining values during compilation — removes enum object from the output
+> ```TypeScript
+> const enum Direction {
+>  Up,
+>  Down
+> }
+>
+> let move = Direction.Up; // Compiled as: let move = 0;
+>``` 
+
+> [!NOTE]
+>
+> Enum vs Union Types
+> For simpler sets of values, consider using union types instead.
+> ```TypeScript
+> type Direction = "North" | "East" | "South" | "West";
+> ```
