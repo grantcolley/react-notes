@@ -78,7 +78,8 @@
 	* [TypeScript Types](#typescript-types)
  	  * [Special Types](#special-types)
  	  * [Advanced Types](#advanced-types)
-            
+	* [Type Aliases](#type-aliases)
+   
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
@@ -1566,4 +1567,58 @@ TypeScript supports all [JavaScript types](#javascript-types) and adds many more
 | **Type Assertions**          | `let val = <string>someValue;` or `someValue as string;`          |
 | **Mapped/Conditional Types** | Advanced meta-programming with types                              |
 
+### Type Aliases
+In TypeScript, type aliases are a way to give a name to a type and are defined using the `type` keyword.
 
+Type aliases can be applied to primitives, objects, functions, and generic types. Union types aliases allow a variable to represent more than one possible type. Type aliases are not the same as interfaces, but they can often be used interchangeably for object types.
+
+```TypeScript
+// Basic type alias syntax
+type AliasName = ExistingType;
+```
+```TypeScript
+// Primitive type alias
+type Age = number;
+let myAge: Age = 30;
+```
+
+```TypeScript
+// Object type alias
+type User = {
+  name: string;
+  age: number;
+};
+
+let user: User = {
+  name: "Alice",
+  age: 25
+};
+```
+
+```TypeScript
+// Union type alias
+type ID = string | number;
+
+let userId: ID = "abc123";
+userId = 42; // valid
+```
+
+```TypeScript
+// Function type alias
+type GreetFunction = (name: string) => string;
+
+const greet: GreetFunction = (name) => `Hello, ${name}`;
+```
+
+```TypeScript
+// Generic type alias
+type Response<T> = {
+  data: T;
+  status: number;
+};
+
+const userResponse: Response<User> = {
+  data: { name: "Alice", age: 25 },
+  status: 200
+};
+```
