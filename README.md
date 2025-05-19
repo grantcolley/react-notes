@@ -79,6 +79,7 @@
  	  * [Special Types](#special-types)
  	  * [Advanced Types](#advanced-types)
 	* [Type Aliases](#type-aliases)
+	* [Interfaces](#interfaces)
    
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -1648,3 +1649,39 @@ const john: EmployeeProfile = {
 > [!WARNING]
 >
 > If two types have conflicting property types, TypeScript will throw an error.
+
+### Interfaces
+Interfaces describes what properties and methods an object should have without implementing them.
+
+```TypeScript
+interface Person {
+  readonly id: number;	// 👈 id is readonly
+  name: string;		// 👈 name is mandatory
+  email?: string; 	// 👈 email is optional
+}
+```
+
+Inheritance using `extends`.
+```TypeScript
+interface Employee {
+  id: number;
+}
+
+interface Manager extends Employee { // 👈 inherit Employee using `extends`
+  teamSize: number;
+}
+
+const mgr: Manager = {
+  id: 1,
+  teamSize: 5
+};
+```
+
+Function interface.
+```TypeScript
+interface Greeter {
+  (name: string): string;
+}
+
+const greet: Greeter = (name) => `Hello, ${name}`;
+```
