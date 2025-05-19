@@ -1624,11 +1624,6 @@ const userResponse: Response<User> = {
 ```
 
 Intersection types combines multiple types into one. You can create an intersection using the `&` operator. They are great for composition. The resulting type has all the properties from each of the intersected types.
-
-> [!WARNING]
->
-> If two types have conflicting property types, TypeScript will throw an error.
-
 ```TypeScript
 type Person = {
   name: string;
@@ -1650,3 +1645,6 @@ const john: EmployeeProfile = {
   department: "Engineering"
 };
 ```
+> [!WARNING]
+>
+> If two types have conflicting property types, TypeScript will throw an error.
