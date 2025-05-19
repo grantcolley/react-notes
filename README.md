@@ -90,9 +90,9 @@
 	* [Enumerations](#enumerations)
    	* [Union Type](#union-type)
      	  * [Unions and Variables](#unions-and-variables)
-     	  * [Flexible Function Parameters](#flexible-function-parameters)
-     	  * [Union with Custom Types](#union-with-custom-types)
-     	  * [Union of Literal Types](#union-of-literal-types)
+   	  * [Flexible Function Parameters](#flexible-function-parameters)
+   	  * [Unions with Custom Types](##unions-with-custom-types)
+   	  * [Union of Literal Types](#union-of-literal-types)
 
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
