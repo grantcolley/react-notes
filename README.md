@@ -88,7 +88,12 @@
  	  * [Getters and Setters](#getters-and-setters)
 	  * [Abstract Classes and Methods](#abstract-classes-and-methods)
 	* [Enumerations](#enumerations)
-   
+   	* [Union Type](#union-type)
+     	  * [Unions and Variables](#unions-and-variables)
+     	  * [Flexible Function Parameters](#flexible-function-parameters)
+     	  * [Union with Custom Types](#union-with-custom-types)
+     	  * [Union of Literal Types](#union-of-literal-types)
+
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
@@ -1864,3 +1869,50 @@ console.log(taskStatus); // "IN_PROGRESS"
 > ```TypeScript
 > type Direction = "North" | "East" | "South" | "West";
 > ```
+
+### Union Type
+A union type lets you specify that a variable, parameter, or return value can be one of several types.
+
+#### Unions and Variables
+```TypeScript
+let value: string | number;
+
+value = "hello"; // ✅
+value = 42;      // ✅
+value = true;    // ❌ Error: boolean is not assignable
+```
+
+#### Flexible Function Parameters
+```TypeScript
+function printId(id: string | number) {
+  console.log(`ID: ${id}`);
+}
+
+printId("abc123"); // ✅
+printId(100);      // ✅
+```
+
+#### Unions with Custom Types
+```TypeScript
+type Cat = { meow: () => void };
+type Dog = { bark: () => void };
+
+type Pet = Cat | Dog;
+
+function makeSound(pet: Pet) {
+  if ("meow" in pet) {
+    pet.meow();
+  } else {
+    pet.bark();
+  }
+}
+```
+
+#### Union of Literal Types
+```TypeScript
+type Direction = "North" | "South" | "East" | "West";
+
+function move(dir: Direction) {
+  console.log(`Moving ${dir}`);
+}
+```
