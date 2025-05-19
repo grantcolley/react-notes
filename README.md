@@ -80,7 +80,14 @@
  	  * [Advanced Types](#advanced-types)
 	* [Type Aliases](#type-aliases)
 	* [Interfaces](#interfaces)
-   
+	* [Classes](#classes)
+ 	  * [Access Modifiers](#access-modifiers)
+ 	  * [Inheritance (Extends)](#inheritance-(extends))
+ 	  * [Implementing an Interface](#implementing-an-interface)
+ 	  * [Static Members](#static-members)
+ 	  * [Getters and Setters](#getters-and-setters)
+	  * [Abstract Classes and Methods](#abstract-classes-and-methods)
+
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
 
@@ -1684,4 +1691,127 @@ interface Greeter {
 }
 
 const greet: Greeter = (name) => `Hello, ${name}`;
+```
+
+### Classes
+Classes create objects with specific structure and behavior, supporting features like constructors, methods, inheritance, access modifiers, and interfaces.
+
+```TypeScript
+class Person {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet(): void {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+}
+
+const john = new Person("John", 30);
+john.greet(); // "Hello, my name is John."
+```
+
+#### Access Modifiers
+| Modifier    | Description                            |
+| ----------- | -------------------------------------- |
+| `public`    | (default) Accessible everywhere        |
+| `private`   | Accessible only within the class       |
+| `protected` | Accessible within class and subclasses |
+| `readonly`  | Can only be set during initialization  |
+```TypeScript
+class BankAccount {
+  private balance: number = 0;
+
+  deposit(amount: number) {
+    this.balance += amount;
+  }
+
+  getBalance(): number {
+    return this.balance;
+  }
+}
+```
+
+#### Inheritance (Extends)
+```TypeScript
+class Animal {
+  move(): void {
+    console.log("Moving...");
+  }
+}
+
+class Dog extends Animal {
+  bark(): void {
+    console.log("Woof!");
+  }
+}
+
+const d = new Dog();
+d.move(); // from Animal
+d.bark(); // from Dog
+```
+
+#### Implementing an Interface
+```TypeScript
+interface Flyable {
+  fly(): void;
+}
+
+class Bird implements Flyable {
+  fly(): void {
+    console.log("Flapping wings...");
+  }
+}
+```
+
+#### Static Members
+```TypeScript
+class MathUtil {
+  static PI = 3.14;
+
+  static square(x: number): number {
+    return x * x;
+  }
+}
+
+console.log(MathUtil.PI); // 3.14
+console.log(MathUtil.square(5)); // 25
+```
+
+#### Getters and Setters
+```TypeScript
+class User {
+  private _username: string = "";
+
+  get username(): string {
+    return this._username;
+  }
+
+  set username(name: string) {
+    if (name.length < 3) throw new Error("Too short");
+    this._username = name;
+  }
+}
+```
+
+#### Abstract Classes and Methods
+An abstract class cannot be instantiated and abstract methods must be implemented by subclasses.
+```TypeScript
+abstract class Shape {
+  abstract area(): number;
+}
+
+class Square extends Shape {
+  constructor(private side: number) {
+    super();
+  }
+
+  area(): number {
+    return this.side * this.side;
+  }
+}
 ```
