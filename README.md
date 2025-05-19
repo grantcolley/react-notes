@@ -82,7 +82,7 @@
 	* [Interfaces](#interfaces)
 	* [Classes](#classes)
  	  * [Access Modifiers](#access-modifiers)
- 	  * [Inheritance (Extends)](#inheritance-(extends))
+ 	  * [Inheritance (Extends)](#inheritance-extends)
  	  * [Implementing an Interface](#implementing-an-interface)
  	  * [Static Members](#static-members)
  	  * [Getters and Setters](#getters-and-setters)
