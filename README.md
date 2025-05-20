@@ -134,6 +134,9 @@ npm -v
 ### Prettier
 [Prettier](https://prettier.io/) is a popular tool capable of formatting React and TypeScript code.
 
+> [!TIP]
+> Install Prettier as an extension in Visual Studio Code. Open the Extensions area in Visual Studio Code and search for an extension called `Prettier – Code formatter`.
+
 # Debugging React + Vite in Visual Studio Code
 
 **1. Start the Vite Dev Server**
