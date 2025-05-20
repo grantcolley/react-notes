@@ -94,7 +94,7 @@
    	  * [Flexible Function Parameters](#flexible-function-parameters)
    	  * [Unions with Custom Types](#unions-with-custom-types)
    	  * [Union of Literal Types](#union-of-literal-types)
-  	* [React.ReactNode Property](#react.reactnode-property)
+  	* [React.ReactNode Property](#reactreactnode-property)
 
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -1949,7 +1949,7 @@ const MyComponent: React.FC<MyComponentProps> = ({ children }) => {
   return <div>{children}</div>;
 };
 
-// component usage
+/* component usage */
 <MyComponent>
   <h1>Title</h1>
   <p>This is a paragraph.</p>
