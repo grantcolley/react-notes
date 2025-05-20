@@ -11,7 +11,8 @@
 	* [npm](#npm)
 * [Tooling](#tooling)
 	* [Vite](#vite)
- 	* [ESLint](#eslint)	 
+ 	* [ESLint](#eslint)
+  	* [Prettier](#prettier)	 
 * [Debugging React + Vite in Visual Studio Code](#debugging-react--vite-in-visual-studio-code)
 * [package.json](#packagejson)
 * [React DOM](#react-dom)
@@ -129,6 +130,9 @@ npm -v
 	 
 ### ESLint
 [ESLint](https://eslint.org/) is a tool that analyzes your code for potential errors, bugs, stylistic issues, and code quality problems
+
+### Prettier
+[Prettier](https://prettier.io/) is a popular tool capable of formatting React and TypeScript code.
 
 # Debugging React + Vite in Visual Studio Code
 
