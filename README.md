@@ -94,6 +94,7 @@
    	  * [Flexible Function Parameters](#flexible-function-parameters)
    	  * [Unions with Custom Types](#unions-with-custom-types)
    	  * [Union of Literal Types](#union-of-literal-types)
+  	* [React.ReactNode Property](#react.reactnode-property)
 
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -1922,4 +1923,35 @@ type Direction = "North" | "South" | "East" | "West";
 function move(dir: Direction) {
   console.log(`Moving ${dir}`);
 }
+```
+
+### React.ReactNode Property
+In TypeScript, a property with the type React.ReactNode is used to indicate that the property can accept any valid React content as its value. This includes virtually everything you can render in a React component.
+
+The primary purpose of using React.ReactNode is to allow a component prop to accept arbitrary renderable content, such as:
+- JSX elements: `<div>Hello</div>`
+- Strings: `'Hello'`
+- Numbers: `123`
+- Booleans (ignored in rendering): `true`, `false`
+- `null` or `undefined` (render nothing)
+- Arrays of the above
+- Fragments (`<>...</>`)
+- Other React components
+
+```JSX
+// component props
+type MyComponentProps = {
+  children: React.ReactNode;
+};
+
+// component accepts props with a React.ReactNode property called children
+const MyComponent: React.FC<MyComponentProps> = ({ children }) => {
+  return <div>{children}</div>;
+};
+
+// component usage
+<MyComponent>
+  <h1>Title</h1>
+  <p>This is a paragraph.</p>
+</MyComponent>
 ```
