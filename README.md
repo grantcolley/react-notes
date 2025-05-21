@@ -57,6 +57,7 @@
   	* [Fetch API](#fetch-api)
 * [Deploy a React Application](#deploy-a-react-application)
 	* [Build Process](#build-process)
+* [React Router](#react-router)
 * [JavaScript](#javascript)
 	* [JavaScript Types](#javascript-types)
  	  * [Primitive Types](#primitive-types)
@@ -1303,6 +1304,19 @@ Vite’s local HTTP server can also serve the application.
 ```CMD
 npm run preview
 ```
+
+# React Router
+[React Router](https://reactrouter.com/start/modes) is in a package called `react-router-dom`, which can be installed from the Visual Studio Code terminal.
+
+```CMD
+npm i react-router-dom
+```
+
+> [!TIP]
+>
+> TypeScript types are included in `react-router-dom`, so there is no need for a separate installation.
+
+
 
 # JavaScript
 ### JavaScript Types
