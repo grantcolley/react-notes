@@ -1449,6 +1449,13 @@ function App() {
   return <RouterProvider router={router} />;
 }
 ```
+> [!TIP]
+> 
+> When to prefer `createBrowserRouter`
+> - You’re building a complex app with nested routes and layout-based design.
+> - You want route-aware data fetching.
+> - You want better error handling and forms integration.
+> - If you just need basic client-side routing (`pages`, `links`, and `navigation`), `BrowserRouter` and `<Routes>` are simpler and totally fine.
 
 #### The `loader` function
 
