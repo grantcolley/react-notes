@@ -58,6 +58,12 @@
 * [Deploy a React Application](#deploy-a-react-application)
 	* [Build Process](#build-process)
 * [React Router](#react-router)
+	* [BrowserRouter](#browserrouter)
+	* [Routes & Route](Routes & Route)
+	* [Link](#link)
+	* [useNavigate](#usenavigate)
+  	* [useParams](#useparams)
+	* [Example](#example)
 * [JavaScript](#javascript)
 	* [JavaScript Types](#javascript-types)
  	  * [Primitive Types](#primitive-types)
@@ -1316,6 +1322,93 @@ npm i react-router-dom
 >
 > TypeScript types are included in `react-router-dom`, so there is no need for a separate installation.
 
+React by itself doesn’t include built-in routing. For real-world apps with multiple pages or views (e.g., `/home`, `/about`, `/profile/:id`), you need a routing solution. React Router is a standard library for routing in React applications. It enables navigation between different components (or “pages”) in a React app, without requiring a full page reload—creating a single-page application (SPA) experience.
+
+### BrowserRouter
+`BrowserRouter` wraps your app and enables the use of routing features using the HTML5 history API.
+
+```JSX
+import { BrowserRouter } from 'react-router-dom';
+
+<BrowserRouter>
+  <App />
+</BrowserRouter>
+```
+
+### Routes & Route
+`<Routes></Routes>` and `<Route />` defines which component to show for which URL path and supports dynamic parameters like `:id`
+
+```JSX
+import { Routes, Route } from 'react-router-dom';
+
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/users/:id" element={<UserProfile />} />
+</Routes>
+```
+
+### Link
+`<Link />` replaces `<a href="...">` to allow client-side navigation without full page reloads.
+
+```JSX
+import { Link } from 'react-router-dom';
+
+<Link to="/about">About</Link>
+```
+
+### useNavigate
+`useNavigate` is used for programmatic navigation inside functions or effects.
+
+```JSX
+import { useNavigate } from 'react-router-dom';
+
+const navigate = useNavigate();
+navigate("/dashboard");
+```
+
+### useParams
+`useParams` accesses dynamic URL segments like `:id` from the route.
+
+```JSX
+import { useParams } from 'react-router-dom';
+
+const { id } = useParams(); // e.g., for /users/:id
+```
+
+### Example
+```JSX
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useParams,
+} from 'react-router-dom';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/users/123">User 123</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/users/:id" element={<User />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+function Home() {
+  return <h2>Home Page</h2>;
+}
+
+function User() {
+  const { id } = useParams();
+  return <h2>User ID: {id}</h2>;
+}
+```
 
 
 # JavaScript
@@ -1348,8 +1441,6 @@ Object Types are mutable and passed by reference.
 > \
 > `typeof null === "object"` (this is a historical bug in JavaScript)
 
-
-
 ### Destructuring
 Destructuring is a way to unpack values from arrays or properties from objects into individual variables easily.
 
@@ -1367,6 +1458,7 @@ console.log(secondColor); // 'green'
 const [, , thirdColor] = colors;
 console.log(thirdColor); // 'blue' 	 // 👈 you can skip items too
 ```
+
 #### Object Destructuring
 ```JS
 const user = { name: 'Alice', age: 25 };
