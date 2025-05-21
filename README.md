@@ -1938,7 +1938,7 @@ The primary purpose of using React.ReactNode is to allow a component prop to acc
 - Fragments (`<>...</>`)
 - Other React components
 
-```JSX
+```TypeScript
 // component props
 type MyComponentProps = {
   children: React.ReactNode;
@@ -1949,7 +1949,7 @@ const MyComponent: React.FC<MyComponentProps> = ({ children }) => {
   return <div>{children}</div>;
 };
 
-/* component usage */
+// component usage
 <MyComponent>
   <h1>Title</h1>
   <p>This is a paragraph.</p>
