@@ -58,12 +58,14 @@
 * [Deploy a React Application](#deploy-a-react-application)
 	* [Build Process](#build-process)
 * [React Router](#react-router)
-	* [BrowserRouter](#browserrouter)
-	* [Routes & Route](#routes--route)
-	* [Link](#link)
-	* [useNavigate](#usenavigate)
-  	* [useParams](#useparams)
+	* [`BrowserRouter`](#browserrouter)
+	* [`Routes` & `Route`](#routes--route)
+	* [`Link`](#link)
+	* [`useNavigate`](#usenavigate)
+  	* [`useParams`](#useparams)
 	* [Example](#example)
+ 	* [`createBrowserRouter`](#createbrowserrouter)
+  	  * [#The `loader` function](#the-loader-function) 
 * [JavaScript](#javascript)
 	* [JavaScript Types](#javascript-types)
  	  * [Primitive Types](#primitive-types)
@@ -1325,7 +1327,7 @@ npm i react-router-dom
 React by itself doesn’t include built-in routing. For real-world apps with multiple pages or views (e.g., `/home`, `/about`, `/profile/:id`), you need a routing solution. React Router is a standard library for routing in React applications. It enables navigation between different components (or “pages”) in a React app, without requiring a full page reload—creating a single-page application (SPA) experience.
 
 ### BrowserRouter
-`BrowserRouter` wraps your app and enables the use of routing features using the HTML5 history API.
+`<BrowserRouter></BrowserRouter>` wraps your app and enables the use of routing features using the HTML5 history API.
 
 ```JSX
 import { BrowserRouter } from 'react-router-dom';
@@ -1410,6 +1412,55 @@ function User() {
 }
 ```
 
+### createBrowserRouter
+Use createBrowserRouter when you're working with the data routers API in React. Use `createBrowserRouter` instead of `<BrowserRouter></BrowserRouter>` when you want to:
+- Use loaders to fetch data before rendering a route
+- Use actions to handle form submissions or mutations
+- Handle route-level errors with error elements
+- Define routes outside JSX in a config-driven way
+
+```JSX
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    loader: async () => {
+      const res = await fetch('/api/home');
+      return res.json();
+    },
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/users/:id",
+    element: <User />,
+    loader: async ({ params }) => {
+      const res = await fetch(`/api/users/${params.id}`);
+      return res.json();
+    },
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
+}
+```
+
+#### The `loader` function
+
+The `loader` function runs before the route renders, allowing you to fetch data and access it via a `useLoaderData` hook.
+```JSX
+import { useLoaderData } from 'react-router-dom';
+
+function Home() {
+  const data = useLoaderData();
+  return <div>{data.message}</div>;
+}
+```
 
 # JavaScript
 ### JavaScript Types
