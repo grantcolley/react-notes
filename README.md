@@ -1197,11 +1197,25 @@ const StyledButtonLarge = styled(StyledButton)`
 ### Tailwind CSS
 [Tailwind](https://tailwindcss.com/) is a set of prebuilt CSS classes that can be used to style an app. It is referred to as a **utility-first CSS framework** because the prebuilt classes can be thought of as flexible utilities.
 
-A key point of Tailwind is that we don’t write new CSS classes for each element we want to style – instead, we use a large range of well-thought-through existing classes. A benefit of this approach is that it helps an app look nice and consistent.
-
 The Tailwind library is installed as a development dependency because it’s not required at runtime.
 \
+\
 `npm i -D tailwindcss` 
+
+A key point of Tailwind is that we don’t write new CSS classes for each element we want to style – instead, we use a large range of well-thought-through existing classes. A benefit of this approach is that it helps an app look nice and consistent.
+
+Instead of writing:
+```CSS
+.button {
+  background-color: blue;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+```
+Using Tailwind CSS you write:
+```HTML
+<button className="bg-blue-500 p-4 rounded-lg">Click me</button>
+```
 
 > [!NOTE]
 >
