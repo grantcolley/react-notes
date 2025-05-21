@@ -51,6 +51,7 @@
 	* [CSS-in-CSS](#css-in-css)
  	* [CSS-in-JS](#css-in-js)
   	* [CSS-in-CSS vs CSS-in-JS](#css-in-css-vs-css-in-js)
+  	* [Tailwind CSS](#tailwind-css)
 * [SVGs](#svgs)
 * [Native Browser](#native-browser)
   	* [Fetch API](#fetch-api)
@@ -1192,6 +1193,19 @@ const StyledButtonLarge = styled(StyledButton)`
 | **Maintainability**       | Separate files can aid large codebases     | Co-locating styles improves readability      |
 | **Media queries/support** | Full CSS feature support                   | Full support with most libraries             |
 | **Server-side rendering** | Requires setup with CSS bundling           | Libraries often provide built-in support     |
+
+### Tailwind CSS
+[Tailwind](https://tailwindcss.com/) is a set of prebuilt CSS classes that can be used to style an app. It is referred to as a **utility-first CSS framework** because the prebuilt classes can be thought of as flexible utilities.
+
+A key point of Tailwind is that we don’t write new CSS classes for each element we want to style – instead, we use a large range of well-thought-through existing classes. A benefit of this approach is that it helps an app look nice and consistent.
+
+The Tailwind library is installed as a development dependency because it’s not required at runtime.
+\
+`npm i -D tailwindcss` 
+
+> [!NOTE]
+>
+> An important point is that Tailwind doesn’t add all its CSS classes – that would produce a massive CSS file! Instead, it only adds the CSS classes used in the app.
 
 # SVGs
 [heroicons](https://heroicons.com/) is one source of SVGs.
