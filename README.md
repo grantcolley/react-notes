@@ -1390,12 +1390,12 @@ import {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter>                 {/* 👈 <BrowserRouter> wraps the app and enabling routing */}
       <nav>
-        <Link to="/">Home</Link> | <Link to="/users/123">User 123</Link>
+        <Link to="/">Home</Link> | <Link to="/users/123">User 123</Link> {/* 👈 <Link> */}
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <Routes>   				
+        <Route path="/" element={<Home />} />   {/* 👈 <Route> specifies the component to show  */}
         <Route path="/users/:id" element={<User />} />
       </Routes>
     </BrowserRouter>
@@ -1407,7 +1407,7 @@ function Home() {
 }
 
 function User() {
-  const { id } = useParams();
+  const { id } = useParams();   {/* 👈 access dynamic URL segments with useParams */}
   return <h2>User ID: {id}</h2>;
 }
 ```
