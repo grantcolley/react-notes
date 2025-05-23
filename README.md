@@ -66,7 +66,7 @@
   	* [Routing Parameters and `useParams`](#routing-parameters-and-useparams)
 	* [Example](#example)
  	* [`createBrowserRouter`](#createbrowserrouter)
-  	  * [#The `loader` function](#the-loader-function) 
+  	  * [The `loader` function](#the-loader-function) 
 * [JavaScript](#javascript)
 	* [JavaScript Types](#javascript-types)
  	  * [Primitive Types](#primitive-types)
