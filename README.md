@@ -63,7 +63,7 @@
  	  * [Nested Routes using `<Outlet />`](#nested-routes-using-outlet-) 
 	* [`Link`](#link)
 	* [`useNavigate`](#usenavigate)
-  	* [`useParams`](#useparams)
+  	* [Routing Parameters and `useParams`](#routing-parameters-and-useparams)
 	* [Example](#example)
  	* [`createBrowserRouter`](#createbrowserrouter)
   	  * [#The `loader` function](#the-loader-function) 
@@ -1411,7 +1411,21 @@ const navigate = useNavigate();
 navigate("/dashboard");
 ```
 
-### useParams
+### Routing Parameters and `useParams`
+Route parameters are defined using a colon `:` followed by a parameter name.
+
+Here, route `{ path: '/product/:id', element: <Product /> }` defines an `:id` parameter.
+\
+This can be reached with the path `/products/123/`.
+
+Multiple route parameters can be used in a path as follows: 
+```JSX
+{
+  path: '/customer/:customerId/orders/:orderId',
+  element: <CustomerOrder />,
+}
+```
+
 `useParams` accesses dynamic URL segments like `:id` from the route.
 
 ```JSX
