@@ -60,7 +60,7 @@
 * [React Router](#react-router)
 	* [`BrowserRouter`](#browserrouter)
 	* [`Routes` & `Route`](#routes--route)
- 	  * [Nested Routes](#nested-routes-using-outlet-) 
+ 	  * [Nested Routes using `<Outlet />`](#nested-routes-using-outlet-) 
 	* [`Link`](#link)
 	* [`useNavigate`](#usenavigate)
   	* [`useParams`](#useparams)
