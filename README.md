@@ -60,6 +60,7 @@
 * [React Router](#react-router)
 	* [`BrowserRouter`](#browserrouter)
 	* [`Routes` & `Route`](#routes--route)
+ 	  * [Nested Routes](#nested-routes-using-outlet-) 
 	* [`Link`](#link)
 	* [`useNavigate`](#usenavigate)
   	* [`useParams`](#useparams)
@@ -1350,6 +1351,47 @@ import { Routes, Route } from 'react-router-dom';
 </Routes>
 ```
 
+#### Nested Routes using `<Outlet />`
+Nested routes allows you to create layouts that share components e.g. navigation bars or sidebars, while rendering different content inside them depending on the URL.
+
+In the following example, `<Dashboard />` is a parent route (page), while `<Profile />` and `<Settings />` are child routes, whose element (component) will be redered inside `<Dashboard />` when selected. 
+```JSX
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import Profile from "./Profile";
+import Settings from "./Settings";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />}>  {/* 👈 Parent Route */}        
+          <Route path="profile" element={<Profile />} />   {/* 👈 Child Route */}
+          <Route path="settings" element={<Settings />} /> {/* 👈 Child Route */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+```
+Dashboard Layout Component
+```JSX
+import { Outlet, Link } from "react-router-dom";  // 👈 import Outlet
+
+function Dashboard() {
+  return (
+    <div>
+      <h2>Dashboard Layout</h2>
+      <nav>
+        <Link to="profile">Profile</Link>
+        <Link to="settings">Settings</Link>
+      </nav>
+
+      <Outlet /> {/* 👈 Render nested child route here */}
+    </div>
+  );
+}
+```
 ### Link
 `<Link />` replaces `<a href="...">` to allow client-side navigation without full page reloads.
 
