@@ -1490,10 +1490,14 @@ function User() {
 
 Search parameters come at the end of the `url` after the `?`, and are separated by `&`.
 
-e.g `https:\\mysite.com?param1=1&param2=2`
+e.g `https:\\mysite.com?param1=one&param2=two`
 
 ```JSX
 const [searchParams, setSearchParams] = useSearchParams();
+
+const type = searchParams.get('param1');
+
+setSearchParams({ param1: 'one', param2: 'two' });
 ```
 
 ### createBrowserRouter
