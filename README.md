@@ -1359,7 +1359,7 @@ An index route is the default child route. If no no children match the parent ro
   element: <App />,
   children: [
     {
-      index: true,
+      index: true,		{/* 👈 specifying the index route */}
       element: <HomePage />,
     },
     ...,
