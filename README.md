@@ -58,17 +58,18 @@
 * [Deploy a React Application](#deploy-a-react-application)
 	* [Build Process](#build-process)
 * [React Router](#react-router)
-	* [`BrowserRouter`](#browserrouter)
-  	* [`Routes` & `Route`](#routes--route)
+	* [`<BrowserRouter>`](#browserrouter)
+  	* [`<Routes>` & `<Route>`](#routes--route)
  	  * [Route Index](#route-index) 
  	  * [Nested Routes using `<Outlet />`](#nested-routes-using-outlet-) 
-	* [`Link`](#link)
+	* [`<Link>`](#link)
 	* [`useNavigate`](#usenavigate)
   	* [Routing Parameters and `useParams`](#routing-parameters-and-useparams)
   	* [`useSearchParams`](#usesearchparams)
 	* [Example](#example)
  	* [`createBrowserRouter`](#createbrowserrouter)
-  	  * [The `loader` function](#the-loader-function) 
+  	  * [The `loader` function](#the-loader-function)
+	* [`<Form>`](#form)
 * [JavaScript](#javascript)
 	* [JavaScript Types](#javascript-types)
  	  * [Primitive Types](#primitive-types)
@@ -1329,7 +1330,7 @@ npm i react-router-dom
 
 React by itself doesn’t include built-in routing. For real-world apps with multiple pages or views (e.g., `/home`, `/about`, `/profile/:id`), you need a routing solution. React Router is a standard library for routing in React applications. It enables navigation between different components (or “pages”) in a React app, without requiring a full page reload—creating a single-page application (SPA) experience.
 
-### BrowserRouter
+### `<BrowserRouter>`
 `<BrowserRouter></BrowserRouter>` wraps your app and enables the use of routing features using the HTML5 history API.
 
 ```JSX
@@ -1340,7 +1341,7 @@ import { BrowserRouter } from 'react-router-dom';
 </BrowserRouter>
 ```
 
-### Routes & Route
+### `<Routes>` & `<Route>`
 `<Routes></Routes>` and `<Route />` defines which component to show for which URL path and supports dynamic parameters like `:id`
 
 ```JSX
@@ -1409,7 +1410,7 @@ function Dashboard() {
   );
 }
 ```
-### Link
+### `<Link>`
 `<Link />` replaces `<a href="...">` to allow client-side navigation without full page reloads.
 
 ```JSX
@@ -1557,6 +1558,18 @@ function Home() {
 > - You want route-aware data fetching.
 > - You want better error handling and forms integration.
 > - If you just need basic client-side routing (`pages`, `links`, and `navigation`), `BrowserRouter` and `<Routes>` are simpler and totally fine.
+
+### `<Form>`
+React Router's form navigation refers to handling navigation via form submissions, instead of using `useNavigate()` or `<Link>`. This is useful for cases like submitting data with `POST`, `PUT`, or `DELETE` methods, where traditional hyperlink navigation doesn't work. React Router's `<Form>` component enhances regular HTML forms by integrating with the router.
+```JSX
+import { Form } from 'react-router-dom';
+
+<Form method="post" action="/login">  {/* 👈 sends  POST request to the "/login" target route */}
+  <input type="text" name="username" />
+  <input type="password" name="password" />
+  <button type="submit">Login</button>
+</Form>
+```
 
 # JavaScript
 ### JavaScript Types
