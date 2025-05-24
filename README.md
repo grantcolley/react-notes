@@ -15,6 +15,8 @@
   	* [Prettier](#prettier)
 * [Libraries](#libraries)
 	* [shadcn/ui](#shadcn-ui)
+ 	* [React Router](#react-router)
+  	* [React Hook Form](#react-hook-form)
 * [Debugging React + Vite in Visual Studio Code](#debugging-react--vite-in-visual-studio-code)
 * [package.json](#packagejson)
 * [React DOM](#react-dom)
@@ -156,8 +158,14 @@ npm -v
 
 # Libraries
 ### shadcn.ui
-[shadcn/ui](https://ui.shadcn.com/) — free prebuilt components using [Tailwind](https://tailwindcss.com/) + Radix UI (very modern, stylish).
+[shadcn/ui](https://ui.shadcn.com/) is a free component library providing prebuilt components using [Tailwind](https://tailwindcss.com/) + Radix UI (very modern, stylish).
 
+### React Router
+[React Router](https://reactrouter.com/) is a routing library for React applications, and is responsible for selecting what to show in the app for a requested path.
+
+### React Hook Form
+[React Hook Form](https://react-hook-form.com/) is a library for building forms for React applications.
+   
 # Debugging React + Vite in Visual Studio Code
 
 **1. Start the Vite Dev Server**
