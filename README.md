@@ -14,7 +14,7 @@
  	* [ESLint](#eslint)
   	* [Prettier](#prettier)
 * [Libraries](#libraries)
-	* [shadcn/ui](#shadcn-ui)
+	* [shadcn/ui](#shadcnui)
  	* [React Router](#react-router)
   	* [React Hook Form](#react-hook-form)
 * [Debugging React + Vite in Visual Studio Code](#debugging-react--vite-in-visual-studio-code)
@@ -157,7 +157,7 @@ npm -v
 > Install Prettier as an extension in Visual Studio Code. Open the Extensions area in Visual Studio Code and search for an extension called `Prettier – Code formatter`.
 
 # Libraries
-### shadcn.ui
+### shadcn/ui
 [shadcn/ui](https://ui.shadcn.com/) is a free component library providing prebuilt components using [Tailwind](https://tailwindcss.com/) + Radix UI (very modern, stylish).
 
 ### React Router
