@@ -12,7 +12,9 @@
 * [Tooling](#tooling)
 	* [Vite](#vite)
  	* [ESLint](#eslint)
-  	* [Prettier](#prettier)	 
+  	* [Prettier](#prettier)
+* [Libraries](#libraries)
+	* [shadcn/ui](#shadcn-ui)
 * [Debugging React + Vite in Visual Studio Code](#debugging-react--vite-in-visual-studio-code)
 * [package.json](#packagejson)
 * [React DOM](#react-dom)
@@ -151,6 +153,10 @@ npm -v
 
 > [!TIP]
 > Install Prettier as an extension in Visual Studio Code. Open the Extensions area in Visual Studio Code and search for an extension called `Prettier – Code formatter`.
+
+# Libraries
+### shadcn.ui
+[shadcn/ui](https://ui.shadcn.com/) — free prebuilt components using [Tailwind](https://tailwindcss.com/) + Radix UI (very modern, stylish).
 
 # Debugging React + Vite in Visual Studio Code
 
