@@ -59,7 +59,8 @@
 	* [Build Process](#build-process)
 * [React Router](#react-router)
 	* [`BrowserRouter`](#browserrouter)
-	* [`Routes` & `Route`](#routes--route)
+  	* [`Routes` & `Route`](#routes--route)
+ 	  * [Route Index](#route-index) 
  	  * [Nested Routes using `<Outlet />`](#nested-routes-using-outlet-) 
 	* [`Link`](#link)
 	* [`useNavigate`](#usenavigate)
@@ -1349,6 +1350,21 @@ import { Routes, Route } from 'react-router-dom';
   <Route path="/about" element={<About />} />
   <Route path="/users/:id" element={<UserProfile />} />
 </Routes>
+```
+#### Route Index
+An index route is the default child route. If no no children match the parent route, it will deisplay the index route, if one is defined.
+```JSX
+{
+  path: "/",
+  element: <App />,
+  children: [
+    {
+      index: true,
+      element: <HomePage />,
+    },
+    ...,
+  ]
+}
 ```
 
 #### Nested Routes using `<Outlet />`
