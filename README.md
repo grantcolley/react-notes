@@ -39,13 +39,13 @@
   	* [React Conditional Rendering](#react-conditional-rendering)
   	* [React Forms](#react-forms)
   	* [Hooks](#hooks)
-  	  * [useState](#usestate)
-  	  * [useReducer](#useReducer)
-  	  * [useEffects](#useeffects)
-  	  * [useRef](#useref)
+  	  * [`useState`](#usestate)
+  	  * [`useReducer`](#useReducer)
+  	  * [`useEffects`](#useeffects)
+  	  * [`useRef`](#useref)
   	  * [Memoization in React](#memoization-in-react) 
-  	    * [useCallback](#usecallback)
-  	    * [useMemo](#usememo)
+  	    * [`useCallback`](#usecallback)
+  	    * [`useMemo`](#usememo)
   	  * [Custom Hooks](#custom-hooks)
 * [CSS](#css)
 	* [CSS-in-CSS](#css-in-css)
@@ -65,6 +65,7 @@
 	* [`Link`](#link)
 	* [`useNavigate`](#usenavigate)
   	* [Routing Parameters and `useParams`](#routing-parameters-and-useparams)
+  	* [`useSearchParams`](#usesearchparams)
 	* [Example](#example)
  	* [`createBrowserRouter`](#createbrowserrouter)
   	  * [The `loader` function](#the-loader-function) 
@@ -799,7 +800,7 @@ const handleChange = (e) => {
 ### Hooks
 Hooks let you use different React features from your components such as state, handle side effects, and access other features.
 
-#### useState
+#### `useState`
 Props are readonly. To change their value, you introduce **state**, which is a mutable data structure.
 
 You define state using the `useState` hook, passing in an initial value and a *setter* function. React stores the state internally and associates it with the component. Calling the state *setter* function updates the value of the state variable and marks the component as **dirty**, meaning it needs to be re-rendered.
@@ -818,7 +819,7 @@ function Counter() {
 }
 ```
 
-#### useReducer
+#### `useReducer`
 A React reducer is a function used with the `useReducer` Hook to **manage complex state logic** in a React component, especially when:
 - actions trigger multiple state changes.
 - state depends on previous state
@@ -857,7 +858,7 @@ function Counter() {
 }
 ```
 
-#### useEffects
+#### `useEffects`
 React side-effects are anything your component does besides rendering e.g. interacting with third party API's, and you manage them using the `useEffect` hook!
 
 Examples of side-effects:
@@ -929,7 +930,7 @@ Because rendering should stay pure — meaning given the same inputs (props/stat
 \
 Side-effects (like fetching data) change the world, so they must happen separately after rendering.
 
-#### useRef
+#### `useRef`
 `useRef` is a hook that gives you a way to persist a value across renders without causing a re-render when it changes.
 
 It’s main purpose is for:
@@ -984,7 +985,7 @@ function Timer() {
 > - Child components that depend on those functions might re-render unnecessarily.
 > - Performance can degrade, especially with complex UIs or large data sets.
 
-##### useCallback
+##### `useCallback`
 `useCallback` memoizes a function so that it's not recreated unless its dependencies change. It's useful when passing functions as props to child components to prevent unnecessary re-renders.
 
 ```jSX
@@ -1027,7 +1028,7 @@ const Child = React.memo(({ onClick }) => {  /* 👈 Child is wrapped in `React.
 });
 ```
 
-##### useMemo
+##### `useMemo`
 `useMemo` memoizes a computed value returned from a function. It's useful when you have expensive calculations that shouldn’t re-run unless needed.
 
 ```JSX
@@ -1482,6 +1483,17 @@ function User() {
   const { id } = useParams();   {/* 👈 access dynamic URL segments with useParams */}
   return <h2>User ID: {id}</h2>;
 }
+```
+
+### `useSearchParams`
+`useSearchParams` is a React router hook for getting and setting search params.
+
+Search parameters come at the end of the `url` after the `?`, and are separated by `&`.
+
+e.g `https:\\mysite.com?param1=1&param2=2`
+
+```JSX
+const [searchParams, setSearchParams] = useSearchParams();
 ```
 
 ### createBrowserRouter
