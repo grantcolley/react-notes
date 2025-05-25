@@ -17,6 +17,7 @@
 	* [shadcn/ui](#shadcnui)
  	* [React Router](#react-router)
   	* [React Hook Form](#react-hook-form)
+  	* [Zod](#zod)
 * [Debugging React + Vite in Visual Studio Code](#debugging-react--vite-in-visual-studio-code)
 * [package.json](#packagejson)
 * [React DOM](#react-dom)
@@ -75,6 +76,7 @@
   	  * [The `loader` function](#the-loader-function)
 	* [`<Form>`](#form)
 * [React Hook Form Example](#react-hook-form-example)
+* [React Hook Form + Zod Example](#react-hook-form--zod-example)
 * [JavaScript](#javascript)
 	* [JavaScript Types](#javascript-types)
  	  * [Primitive Types](#primitive-types)
@@ -166,7 +168,10 @@ npm -v
 
 ### React Hook Form
 [React Hook Form](https://react-hook-form.com/) is a library for building forms for React applications. See [React Hook Form Example](#react-hook-form-example) below.
-   
+
+### Zod
+[Zod](https://github.com/colinhacks/zod) is a TypeScript-first schema validation with static type inference. Zod is very popular when building React applications uing `React Hook Form + TypeScript`. See [React Hook Form + Zod Example](#react-hook-form--zod-example) below.
+
 # Debugging React + Vite in Visual Studio Code
 
 **1. Start the Vite Dev Server**
@@ -1655,6 +1660,78 @@ Key Features
 | `handleSubmit()`   | Handles form submission              |
 | `formState.errors` | Contains validation error messages   |
 | Validation         | Done inline via `register()` options |
+
+# React Hook Form + Zod Example
+[Zod](https://github.com/colinhacks/zod) is a TypeScript-first schema validation with static type inference.
+
+Here is the same login form above, using [Zod](https://github.com/colinhacks/zod) for form validation.
+
+```TypeScript
+// LoginForm.tsx
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+// 1. Define the Zod schema
+const schema = z.object({
+  email: z.string().email({ message: 'Invalid email address' }),
+  password: z.string().min(6, { message: 'Password must be at least 6 characters' }),
+});
+
+// 2. Infer TypeScript types from schema
+type LoginFormData = z.infer<typeof schema>;
+
+export default function LoginForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data: LoginFormData) => {
+    console.log('Submitted Data:', data);
+    // handle API call or login logic
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="p-4 max-w-md mx-auto">
+      <div className="mb-4">
+        <label>Email:</label>
+        <input
+          type="email"
+          {...register('email')}
+          className="border rounded w-full p-2"
+        />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+      </div>
+
+      <div className="mb-4">
+        <label>Password:</label>
+        <input
+          type="password"
+          {...register('password')}
+          className="border rounded w-full p-2"
+        />
+        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+      </div>
+
+      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        Log In
+      </button>
+    </form>
+  );
+}
+```
+
+Advantages of Zod in this setup.
+| Benefit                     | What It Means                           |
+| --------------------------- | --------------------------------------- |
+| `z.infer<typeof schema>`    | Automatically get form input types      |
+| Precise error messages      | Defined alongside your validation logic |
+| Works great with TypeScript | Fully typed form inputs and submission  |
+| Self-contained validation   | No need for external Yup schemas/types  |
 
 # JavaScript
 ### JavaScript Types
