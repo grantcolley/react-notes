@@ -1740,7 +1740,7 @@ React Context is a feature in React that allows you to share data between compon
 ```TypeScript
 // context.js
 import React from 'react';
-export const ThemeContext = React.createContext('light');  // 👈 Context Creation
+export const ThemeContext = React.createContext('light');  // 👈 Context creation
 
 // App.js
 import { ThemeContext } from './context';
@@ -1758,7 +1758,7 @@ import { useContext } from 'react';
 import { ThemeContext } from './context';
 
 function Toolbar() {
-  const theme = useContext(ThemeContext); // 👈 context accessed via useContext Hook
+  const theme = useContext(ThemeContext); // 👈 Context accessed via useContext Hook
   return <div>Theme is {theme}</div>;
 }
 ```
