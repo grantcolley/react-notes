@@ -77,6 +77,7 @@
 	* [`<Form>`](#form)
 * [React Hook Form Example](#react-hook-form-example)
 * [React Hook Form + Zod Example](#react-hook-form--zod-example)
+* [React Context](#react-context)
 * [JavaScript](#javascript)
 	* [JavaScript Types](#javascript-types)
  	  * [Primitive Types](#primitive-types)
@@ -1732,6 +1733,45 @@ Advantages of Zod in this setup.
 | Precise error messages      | Defined alongside your validation logic |
 | Works great with TypeScript | Fully typed form inputs and submission  |
 | Self-contained validation   | No need for external Yup schemas/types  |
+
+# React Context
+React Context is a feature in React that allows you to share data between components without having to explicitly pass props through every level of the component tree. It’s useful for global data like themes, authenticated user info, or any data that needs to be accessible by many components at different nesting levels.
+
+```TypeScript
+// context.js
+import React from 'react';
+export const ThemeContext = React.createContext('light');  // 👈 Context Creation
+
+// App.js
+import { ThemeContext } from './context';
+
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">   // 👈 Provider provides the context to its children.
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+// Toolbar.js
+import { useContext } from 'react';
+import { ThemeContext } from './context';
+
+function Toolbar() {
+  const theme = useContext(ThemeContext); // 👈 context accessed via useContext Hook
+  return <div>Theme is {theme}</div>;
+}
+```
+
+> [!NOTE]
+> Use React Context when:
+> - You need to pass data through many levels of components.
+> - Props drilling becomes difficult or cluttered.
+> - You have globally accessible data (like theme, locale, auth state).
+
+> [!WARNING]
+> Avoid overusing context for frequent updates (like high-frequency state changes), as it can lead to unnecessary re-renders.
+> For complex global state, consider state management tools like Redux or Zustand.
 
 # JavaScript
 ### JavaScript Types
