@@ -74,6 +74,7 @@
  	* [`createBrowserRouter`](#createbrowserrouter)
   	  * [The `loader` function](#the-loader-function)
 	* [`<Form>`](#form)
+* [React Hook Form Example](#react-hook-form-example)
 * [JavaScript](#javascript)
 	* [JavaScript Types](#javascript-types)
  	  * [Primitive Types](#primitive-types)
@@ -164,7 +165,7 @@ npm -v
 [React Router](https://reactrouter.com/) is a routing library for React applications, and is responsible for selecting what to show in the app for a requested path.
 
 ### React Hook Form
-[React Hook Form](https://react-hook-form.com/) is a library for building forms for React applications.
+[React Hook Form](https://react-hook-form.com/) is a library for building forms for React applications. See [React Hook Form Example](#react-hook-form-example) below.
    
 # Debugging React + Vite in Visual Studio Code
 
@@ -1584,6 +1585,76 @@ import { Form } from 'react-router-dom';
   <button type="submit">Login</button>
 </Form>
 ```
+
+# React Hook Form Example
+[React Hook Form](https://react-hook-form.com/) is a library for building forms for React applications.
+
+```CMD
+npm install react-hook-form
+```
+
+Basic login form example
+```JSX
+import { useForm } from 'react-hook-form';
+
+function LoginForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log('Form Data:', data);
+    // You can send data to an API here
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="p-4 max-w-md mx-auto">
+      <div className="mb-4">
+        <label>Email:</label>
+        <input
+          {...register('email', { required: 'Email is required' })}
+          type="email"
+          className="border rounded w-full p-2"
+        />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+      </div>
+
+      <div className="mb-4">
+        <label>Password:</label>
+        <input
+          {...register('password', {
+            required: 'Password is required',
+            minLength: {
+              value: 6,
+              message: 'Password must be at least 6 characters',
+            },
+          })}
+          type="password"
+          className="border rounded w-full p-2"
+        />
+        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+      </div>
+
+      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        Log In
+      </button>
+    </form>
+  );
+}
+
+export default LoginForm;
+```
+
+Key Features
+| Feature            | How it works                         |
+| ------------------ | ------------------------------------ |
+| `useForm()`        | Initializes the form                 |
+| `register()`       | Binds inputs to React Hook Form      |
+| `handleSubmit()`   | Handles form submission              |
+| `formState.errors` | Contains validation error messages   |
+| Validation         | Done inline via `register()` options |
 
 # JavaScript
 ### JavaScript Types
