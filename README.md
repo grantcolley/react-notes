@@ -1594,7 +1594,7 @@ npm install react-hook-form
 ```
 
 Basic login form example
-```JSX
+```TypeScript
 import { useForm } from 'react-hook-form';
 
 function LoginForm() {
