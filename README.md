@@ -2,6 +2,8 @@
 
 > [!IMPORTANT]
 > The purpose of this `readme` is simply to consolidate content I find important or useful to me in some way on my journey to learn **React**, and condense them into a single page for my own personal reference.
+>
+> A significant amount of this content, including code samples, is AI generated.
 
 ### Table of contents
 * [About React](#about-react)
