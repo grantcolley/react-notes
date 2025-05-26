@@ -117,6 +117,13 @@
    	  * [Unions with Custom Types](#unions-with-custom-types)
    	  * [Union of Literal Types](#union-of-literal-types)
   	* [React.ReactNode Property](#reactreactnode-property)
+  	* [Generics](#generics)
+	  * [Generic Functions](#generic-functions)
+  	  * [Generic Interfaces](#generic-interfaces)
+  	  * [Generic Classes](#generic-classes)
+  	  * [Generic Constraints](#generic-constraints)
+  	  * [Default Generic Types](#default-generic-types)
+  	  * [Generics Summary](#generics-summary)
 
 # About React
 Created by Facebook in 2013, [React](https://react.dev/learn) is a JavaScript library used for building single-page applications (SPAs), where the user interacts with the page without needing to reload it.
@@ -2454,3 +2461,79 @@ const MyComponent: React.FC<MyComponentProps> = ({ children }) => {
   <p>This is a paragraph.</p>
 </MyComponent>
 ```
+
+### Generics
+TypeScript generics are a powerful feature that allow you to write flexible, reusable, and type-safe code. Generics let you create components (like functions, classes, or interfaces) that can work with any data type while still preserving type safety.
+
+`T` is a placeholder for any type, and TypeScript keeps track of it.
+
+#### Generic Functions
+```TypeScript
+function merge<T, U>(a: T, b: U): [T, U] {
+  return [a, b];
+}
+
+const result = merge({ name: "Alice" }, 42); 
+// result is [{ name: string }, number]
+```
+
+#### Generic Interfaces
+```TypeScript
+interface Box<T> {
+  value: T;
+}
+
+const stringBox: Box<string> = { value: "Hello" };
+const numberBox: Box<number> = { value: 123 };
+```
+
+#### Generic Classes
+```TypeScript
+class Stack<T> {
+  private items: T[] = [];
+
+  push(item: T): void {
+    this.items.push(item);
+  }
+
+  pop(): T | undefined {
+    return this.items.pop();
+  }
+}
+
+const numStack = new Stack<number>();
+numStack.push(1);
+numStack.push(2);
+```
+
+#### Generic Constraints
+```TypeScript
+function getLength<T extends { length: number }>(value: T): number {
+  return value.length;
+}
+
+getLength("hello");      // ✅ OK
+getLength([1, 2, 3]);    // ✅ OK
+getLength(123);          // ❌ Error: number has no 'length'
+```
+
+#### Default Generic Types
+```TypeScript
+function createBox<T = string>(value: T): Box<T> {
+  return { value };
+}
+
+const box1 = createBox("hello"); // Box<string>
+const box2 = createBox(123);     // Box<number>
+```
+
+#### Generics Summary
+| Concept           | Example                           |
+| ----------------- | --------------------------------- |
+| Generic Function  | `function identity<T>(arg: T): T` |
+| Generic Interface | `interface Box<T> { value: T }`   |
+| Generic Class     | `class Stack<T> {}`               |
+| Constraint        | `T extends { length: number }`    |
+| Default Type      | `function<T = string>(arg: T)`    |
+
+
