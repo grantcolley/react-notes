@@ -1737,6 +1737,9 @@ Advantages of Zod in this setup.
 # React Context
 React Context is a feature in React that allows you to share data between components without having to explicitly pass props through every level of the component tree. It’s useful for global data like themes, authenticated user info, or any data that needs to be accessible by many components at different nesting levels.
 
+> [!IMPORTANT]
+> When a context value updates React re-renders every component that uses `useContext()` or `<Context.Consumer>` and is within the provider's subtree, regardless of whether they actually care about the changed part of the value.
+
 ```TypeScript
 // context.js
 import React from 'react';
