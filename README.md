@@ -47,7 +47,7 @@
   	* [React Forms](#react-forms)
   	* [Hooks](#hooks)
   	  * [`useState`](#usestate)
-  	  * [`useReducer`](#useReducer)
+  	  * [`useReducer`](#usereducer)
   	  * [`useEffects`](#useeffects)
   	  * [`useRef`](#useref)
   	  * [Memoization in React](#memoization-in-react) 
