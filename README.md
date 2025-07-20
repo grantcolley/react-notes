@@ -64,7 +64,7 @@
   	* [Fetch API](#fetch-api)
 * [Deploy a React Application](#deploy-a-react-application)
 	* [Build Process](#build-process)
-* [React Router](#react-router)
+* [React Router](#react-router-1)
 	* [`<BrowserRouter>`](#browserrouter)
   	* [`<Routes>` & `<Route>`](#routes--route)
  	  * [Route Index](#route-index) 
